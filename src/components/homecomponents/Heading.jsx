@@ -2,6 +2,7 @@
 
 
 import { useState, useEffect, useRef } from "react";
+import '../../styles/homecomponent/Heading.css'
 
 const Magnet = ({
   children,

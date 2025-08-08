@@ -33,10 +33,6 @@
 .login-form>div>div{
     display: flex;
     flex-direction: column;
-    /* border: 2px solid darkblue; */
-    /* gap: 10px; */
-    /* align-items: flex-start; */
-    /* justify-content: flex-start; */
 }
 
 .login-form input[type="text"]{

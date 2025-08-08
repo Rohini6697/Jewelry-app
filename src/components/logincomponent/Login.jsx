@@ -51,14 +51,17 @@ const Login = () => {
         // else if(inputs.username.length < 6) {
         //     errors.username = 'username must be at least 6 character long'
         // }
-        if (!inputs.secondname) {
-            errors.secondname = 'Secondname required';
-        }
+        // if (!inputs.secondname) {
+        //     errors.secondname = 'Secondname required';
+        // }
         // else if(inputs.username.length < 6) {
         //     errors.username = 'username must be at least 6 character long'
         // }
         if (!inputs.email) {
             errors.email = 'Email required';
+        }
+        else if (!inputs.email.includes('@')) {
+            errors.email = 'incorrect email address'
         }
         // else if(inputs.username.length < 6) {
         //     errors.username = 'username must be at least 6 character long'

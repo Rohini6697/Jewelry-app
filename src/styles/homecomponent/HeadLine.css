@@ -1,0 +1,13 @@
+.headline {
+    font-size: 110px;
+    /* position: fixed; */
+    position: absolute;
+    font-family: 'Times New Roman', Times, serif;
+    /* border: 2px solid darkgoldenrod; */
+    height: 100%;
+    
+}
+.headline h1 {
+    font-weight: 300;
+    /* margin-top: -1px; */
+}

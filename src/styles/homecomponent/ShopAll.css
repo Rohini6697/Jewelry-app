@@ -1,0 +1,24 @@
+.shop-all {
+    /* border: 2px solid darkcyan; */
+    /* width: 100%; */
+    /* min-width: 200px; */
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    /* width: 500px; */
+    /* position: relative; */
+    /* z-index: -100; */
+}
+.shop-all>div {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+.shop-all h2 {
+    font-weight: lighter;
+}
