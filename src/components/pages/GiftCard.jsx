@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom"
+import GiftDetails from "../giftcomponent/GiftDetails";
 
 
 
@@ -6,6 +7,7 @@ import {Link} from "react-router-dom"
 const GiftcardPage = () => {
     return (
         <>
+            <GiftDetails/>
         </>
     );
 }

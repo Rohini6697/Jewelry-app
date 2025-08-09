@@ -8,7 +8,7 @@ const BestSellerCards = (props) => {
         <div className='bestseller-cards'>
             <img src = {data.image}/>
             <h2>{data.product}</h2>
-            <h4>{data.price}</h4>
+            <p>{data.price}</p>
         </div>
       
     </div>

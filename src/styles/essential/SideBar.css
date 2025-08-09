@@ -1,0 +1,7 @@
+.side-bar {
+    border: 2px solid darkblue;
+    max-width: 250px;
+}
+.links li {
+    list-style-type: none;
+}

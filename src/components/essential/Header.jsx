@@ -11,7 +11,16 @@ const Header = () => {
                 <h1>Dennel</h1>
                 <ul>
                     <li><Link to = {'/'}>Home</Link></li>
-                    <li><Link to = {'/shop'}>Shop</Link></li>
+                    <div className='dropdown'>
+                        <li><Link to = {'/allproducts'}>Shop</Link></li>
+                        <div className='dropdown-menu'>
+                            <li><Link to = {'/rings'}>Rings</Link></li>
+                            <li><Link to = {'/earrings'}>Earring</Link></li>
+                            <li><Link to = {'/necklaces'}>Necklaces</Link></li>
+                            <li><Link to = {'/bracelets'}>Bracelets</Link></li>
+                            <li><Link to = {'/newin'}>New In</Link></li>
+                        </div>
+                    </div>
                     <li><Link to = {'/ourstory'}>Our Story</Link></li>
                     <li><Link to = {'/giftcard'}>Gift Card</Link></li>
                     <li><Link to = {'/contact'}>Contact</Link></li>

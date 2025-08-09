@@ -8,6 +8,14 @@ import OurstoryPage from './components/pages/OurStory';
 import GiftcardPage from './components/pages/GiftCard';
 import ContactPage from './components/pages/Contact';
 import LoginPage from './components/pages/Login';
+import FooterPart from './components/essential/FooterPart';
+import Rings from './components/pages/Rings';
+import Earrings from './components/pages/Earrings';
+import Necklaces from './components/pages/Necklaces';
+import Bracelets from './components/pages/Bracelets';
+import NewIn from './components/pages/NewIn';
+import AllProducts from './components/pages/AllProducts';
+import BestSeller from './components/homecomponents/BestSeller';
 
 function App() {
   return (
@@ -16,13 +24,21 @@ function App() {
         <Routes>
           
             <Route path = '/' element = {<HomePage/>}/>
-            <Route path = '/shop' element = {<ShopPage/>}/>
+            {/* <Route path = '/shop' element = {<ShopPage/>}/> */}
+            <Route path = '/allproducts' element = {<AllProducts/>}/>
             <Route path = '/ourstory' element = {<OurstoryPage/>}/>
             <Route path = '/giftcard' element = {<GiftcardPage/>}/>
             <Route path = '/contact' element = {<ContactPage/>}/>
             <Route path = '/login' element = {<LoginPage/>}/>
+            <Route path = '/rings' element = {<Rings/>}/>
+            <Route path = '/earrings' element = {<Earrings/>}/>
+            <Route path = '/necklaces' element = {<Necklaces/>}/>
+            <Route path = '/bracelets' element = {<Bracelets/>}/>
+            <Route path = '/newin' element = {<NewIn/>}/>
+            <Route path = '/bestseller' element = {<BestSeller/>}/>
 
         </Routes>
+      <FooterPart/>
     </BrowserRouter>
   );
 }
