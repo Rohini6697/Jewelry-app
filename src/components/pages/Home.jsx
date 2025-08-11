@@ -23,8 +23,10 @@ const HomePage = () => {
             <div className='bestseller'>
                 <BestSeller/>
             </div>
-            <Products/>
-            <TextLoop/>
+            <div>
+                <Products/>
+            </div>
+            
         </>
     );
 }

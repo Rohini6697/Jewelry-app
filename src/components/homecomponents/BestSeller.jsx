@@ -11,7 +11,7 @@ const BestSeller = () => {
             <h1>Best Seller</h1>
             <h5><Link to = {'/shop'}>Shop All</Link></h5>
         </div>
-        <div>
+        <div className='images'>
           {
             BestSellerData.map((item,idx) => <BestSellerCards data = {item} key = {idx}/>)
           }

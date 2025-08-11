@@ -1,60 +1,64 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: white;
-  margin-top: 20px;
-}
-
-.container {
+#rssBlock{
+  left:0px;
+  height: 180px;
+  background: black;
+  position: absolute;
+  width:1280px;
+  overflow: hidden;
   display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  z-index: 1;
+}
+
+/*remove p*/
+.cnnContents {
+  width:100%;
+  padding-top: 20px;
+  margin:0 auto;
+  font-size: 70px;
   white-space: nowrap;
-}
-
-.list {
-  display: flex;
-  align-items: top;
-  -webkit-animation: loop 20s infinite linear;
-  animation: loop 20s infinite linear;
-}
-
-.item-txt{
-  font-family: Kumbh Sans;
-  font-size: 110px;
-  line-height: 110px;
-  font-style: normal;
-  font-weight: normal;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #1A1A1A;
+  font-family:'Times New Roman', Times, serif;
+  font-weight: 300;
+  color: white;
 }
 
-.item-d{
-  display: inline;
+.marqueeStyle {
+  display:inline-block;
+  /* Apply animation to this element */
+  -webkit-animation: scrolling-left1 20s linear infinite;
+  animation: scrolling-left1 20s linear infinite;
 }
 
-.item-dot{
-  max-width: 20px;
-  max-height: 20px;
-  margin: 0 50px;
-  padding: 10px;
-  border-radius: 50%;
-  display: inline-block;
-  transform: translateY(-30px);
+.marqueeStyle2 {
+  display:inline-block;
+  /* Apply animation to this element */
+  -webkit-animation: scrolling-left2 20s linear infinite;
+  animation: scrolling-left2 20s linear infinite;
+  animation-delay: 10s;
+}
+/* scrolling-left is continuous/repeatly text */
+@keyframes scrolling-left1 {
+    0% {transform: translateX(100%);
+        -webkit-transform: translateX(100%);}
+      100% {transform: translateX(-100%);
+          -webkit-transform: translateX(-100%);}
+}
+@keyframes scrolling-left2 {
+    0% {transform: translateX(0%);
+        -webkit-transform: translateX(0%);}
+      100% {transform: translateX(-200%);
+          -webkit-transform: translateX(-200%);}
 }
 
-.dot-r{background-color: #F35C4A;}
-.dot-b{background-color: #1188FF;}
-.dot-g{background-color: #60F2D0;}
-.dot-y{background-color: #FFDB6B;}
-.dot-t{background-color: #BFE05E;}
-
-@keyframes loop {
-  100% {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-  }
+@-webkit-keyframes scrolling-left1 {
+    0% {-webkit-transform: translateX(100%);}
+      100% {-webkit-transform: translateX(-100%);}
 }
+@-webkit-keyframes scrolling-left2 {
+    0% {-webkit-transform: translateX(0%);}
+      100% {-webkit-transform: translateX(-200%);}
+}
+
+
