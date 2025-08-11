@@ -3,7 +3,7 @@
     background-color: black;
     display: flex;
     justify-content:center;
-    gap: 50px;
+    /* gap: 50px; */
     /* min-height: 500px; */
 }
 .footer form{

@@ -1,14 +1,14 @@
 
 .stack {
-  border: 2px solid darkmagenta;
+  /* border: 2px solid darkmagenta; */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
 }
 .stack div{
   /* background-color: aqua; */
-  width: 100%;
+  /* width: 100%; */
   /* width: 500px; */
   /* height: 500px;
   position: sticky;
@@ -26,43 +26,55 @@
   position: sticky;
   top: 0px;
   display: flex;
+  justify-content: center;
+  /* border: 5px solid darkgreen; */
   gap: 100px;
+  /* width: 600px; */
   /* max-width: 1300px; */
   /* z-index: 4; */
   /* z-index: 0; */
 }
-.stack div img{
+/* .stack>div>div>div img{ */
   /* position: sticky; */
   /* z-index: 4; */
-  width: 1000px;
+  /* width: 1000px; */
   /* object-fit: cover; */
   
   /* width: 100%; */
+/* } */
+.image-category img{
+  width: 900px;
+  height: 500px;
 }
 .earrings-side{
   /* background-color: rgb(51, 0, 255); */
   /* width: 500px; */
   height: 500px;
   position: sticky;
-  top: 50px;
+  justify-content: center;
+
+  top: 70px;
   display: flex;
   gap: 57px;
 }
 .necklaces-side{
   /* background-color: rgb(0, 255, 8); */
-  /* width: 500px; */
+  justify-content: center;
+
   height: 500px;
   position: sticky;
-  top: 100px;
+  top: 140px;
   display: flex;
   gap: 42px;
 }
 .bracelates-side{
   /* background-color: rgb(217, 186, 12); */
+  justify-content: center;
+
   /* width: 500px; */
   height: 500px;
   position: sticky;
-  top: 150px;
+  top: 210px;
   display: flex;
   gap: 35px;
 }
@@ -90,7 +102,16 @@
 .products {
   display: flex;
   flex-direction: column;
-  width: 1300px;
+  /* width: 1300px; */
+  align-items: center;
+  border: 6px solid darkgreen;
+  
+}
+.products>div{
+  border: 3px solid darkturquoise;
+}
+.text{
+  /* object-fit: cover; */
 }
 .products img{
   width: 200px;
@@ -99,4 +120,15 @@
   color: white;
   background-color: black;
   width: 1300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.insta{
+  border: 2px solid darkblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: black; */
 }
