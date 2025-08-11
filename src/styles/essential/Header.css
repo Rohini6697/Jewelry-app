@@ -1,10 +1,10 @@
 .navigation-bar-container {
-    border: 2px solid darkblue;
+    /* border: 2px solid darkblue; */
     display: flex;
     justify-content: center;
     align-items: center;
     font-family:'Times New Roman', Times, serif;
-    /* gap: 300px; */
+    gap: 200px;
     /* color: chartreuse; */
 }
 .navigation-bar-container h1 {
@@ -43,4 +43,15 @@
 }
 .dropdown:hover .dropdown-menu{
     display: block;
+}
+.links {
+    color: black;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 17px;
+}
+.icons {
+    /* width: 20px; */
+    /* height: 20px; */
+    /* border: 2px solid darkblue; */
 }
