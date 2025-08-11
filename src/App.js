@@ -16,6 +16,7 @@ import Bracelets from './components/pages/Bracelets';
 import NewIn from './components/pages/NewIn';
 import AllProducts from './components/pages/AllProducts';
 import BestSeller from './components/homecomponents/BestSeller';
+import SignUp from './components/signupcomponent/SignUp';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path = '/giftcard' element = {<GiftcardPage/>}/>
             <Route path = '/contact' element = {<ContactPage/>}/>
             <Route path = '/login' element = {<LoginPage/>}/>
+            <Route path = '/signup' element = {<SignUp/>}/>
             <Route path = '/rings' element = {<Rings/>}/>
             <Route path = '/earrings' element = {<Earrings/>}/>
             <Route path = '/necklaces' element = {<Necklaces/>}/>

@@ -1,17 +1,17 @@
 .footer>div {
-    /* border: 2px solid darkblue; */
+    border: 2px solid darkblue;
     background-color: black;
     display: flex;
     justify-content:center;
-    /* gap: 50px; */
+    gap: 50px;
     /* min-height: 500px; */
 }
 .footer form{
     color: white;
 }
 .footer>div>div{
-    /* border: 2px solid rgb(11, 184, 23); */
-    width: 1200px;
+    border: 2px solid rgb(11, 184, 23);
+    /* width: 1200px; */
     display: flex;
     justify-content: space-between;
     z-index: 999px;
@@ -62,4 +62,13 @@
 .down>div ul {
     display: flex;
     gap: 10px;
+}
+.footer{
+    display: flex;
+    flex-direction: column;
+    /* align-items: start; */
+    justify-content:flex-start;
+}
+.end-foot{
+    width: 1200px;
 }

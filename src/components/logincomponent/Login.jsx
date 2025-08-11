@@ -5,10 +5,8 @@ import { useState } from 'react'
 
 const Login = () => {
     const [data,setdata] = useState ({
-        firstname : '',
-        secondname : '',
-        email : '',
-        password : ''
+        username : '',
+        email : ''
     })
 
     const [errors,seterrors] = useState({});
@@ -45,27 +43,10 @@ const Login = () => {
     const validationForm = (inputs) => {
         const errors = {};
 
-        if (!inputs.firstname) {
-            errors.firstname = 'Firstname required';
+        if (!inputs.username) {
+            errors.username = 'Username required';
         }
-        // else if(inputs.username.length < 6) {
-        //     errors.username = 'username must be at least 6 character long'
-        // }
-        // if (!inputs.secondname) {
-        //     errors.secondname = 'Secondname required';
-        // }
-        // else if(inputs.username.length < 6) {
-        //     errors.username = 'username must be at least 6 character long'
-        // }
-        if (!inputs.email) {
-            errors.email = 'Email required';
-        }
-        else if (!inputs.email.includes('@')) {
-            errors.email = 'incorrect email address'
-        }
-        // else if(inputs.username.length < 6) {
-        //     errors.username = 'username must be at least 6 character long'
-        // }
+        
         if (!inputs.password) {
             errors.password = 'Passsword required';
         }
@@ -85,36 +66,19 @@ const Login = () => {
             <form className='login-form' onSubmit={handleSubmit}>
                 <h1>Login</h1>
                 <div>
-                    <div>
-                        <input value={data.firstname} name='firstname' onChange={handlechange} type='text' placeholder='First Name'></input>
-                        {errors.firstname && (
-                            <span className='error-alert'>{errors.firstname}</span>
-                        )}
-                    </div>
-                    <div>
-                        <input value={data.secondname} name='secondname' onChange={handlechange} type='text' placeholder='Last Name'></input> 
-                        {errors.secondname && (
-                            <span className='error-alert'>{errors.secondname}</span>
-                        )} 
-                    </div>
-                </div>
-                <div>
-                    <input value={data.email} name='email' onChange={handlechange} type='email' placeholder='Email'></input><br/>
-                    {errors.email && (
-                            <span className='error-alert'>{errors.email}</span>
+                    <input className='username' value={data.username} name='username' onChange={handlechange} type='text' placeholder='Username'></input><br/>
+                    {errors.username && (
+                            <span className='error-alert'>{errors.username}</span>
                         )}
                 </div>
-                <div>
+                <div className='pass'>
                     <input value={data.password} name='password' onChange={handlechange} type='password' placeholder='Enter Your Password'></input> <br/>
                     {errors.password && (
                             <span className='error-alert'>{errors.password}</span>
                         )}  
                 </div>
-                {/* <div className='check'>
-                    <input type='checkbox'></input>
-                    <label> I agree with the <Link to='#'>Terms & Condition</Link></label>
-                </div> */}
                  <button type='submit'>Login</button>
+                 <Link to = {'/signup'}>Already have an accounte ?</Link>
             </form>
            
         </div>

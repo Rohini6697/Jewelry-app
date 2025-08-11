@@ -10,9 +10,9 @@ const Header = () => {
     return (
         <nav>
             <div className='navigation-bar-container'>
-                <h1>Dennel</h1>
+                <Link to = {'/'} className='links'><h1>Dennel</h1></Link>
                 <ul>
-                    <li><Link to = {'/'} className='links'>Home</Link></li>
+                    
                     <div className='dropdown'>
                         <li><Link to = {'/allproducts'} className='links'>Shop</Link></li>
                         <div className='dropdown-menu'>

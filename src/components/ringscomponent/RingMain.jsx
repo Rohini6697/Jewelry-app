@@ -2,7 +2,7 @@ import React from 'react'
 import RingsCards from './RingsCards'
 import { Rings } from '../../data/Rings'
 import '../../styles/ringcomponent/RingMain.css'
-import { Earring } from '../../data/Earrings'
+// import { Earring } from '../../data/Earrings'
 
 const RingMain = () => {
   return (

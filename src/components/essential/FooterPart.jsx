@@ -52,7 +52,7 @@ const FooterPart = () => {
         </div>
         <div className='down'>
             <h1>Dennel</h1>
-            <div>
+            <div className='end-foot'>
                 <ul>
                     <li>Instagram</li>
                     <li>Twitter</li>
