@@ -1,5 +1,5 @@
 .footer>div {
-    border: 2px solid darkblue;
+    /* border: 2px solid darkblue; */
     background-color: black;
     display: flex;
     justify-content:center;
@@ -10,7 +10,7 @@
     color: white;
 }
 .footer>div>div{
-    border: 2px solid rgb(11, 184, 23);
+    /* border: 2px solid rgb(11, 184, 23); */
     /* width: 1200px; */
     display: flex;
     justify-content: space-between;

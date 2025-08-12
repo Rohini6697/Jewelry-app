@@ -17,11 +17,14 @@ import NewIn from './components/pages/NewIn';
 import AllProducts from './components/pages/AllProducts';
 import BestSeller from './components/homecomponents/BestSeller';
 import SignUp from './components/signupcomponent/SignUp';
+import ProtectedRoutes from './hooks/UseProtectedRoutes';
+import UserPage from './components/usercomponent/UserPage';
 
 function App() {
   return (
     <BrowserRouter>
       <Header/>
+      <ProtectedRoutes/>
         <Routes>
           
             <Route path = '/' element = {<HomePage/>}/>
@@ -38,6 +41,7 @@ function App() {
             <Route path = '/bracelets' element = {<Bracelets/>}/>
             <Route path = '/newin' element = {<NewIn/>}/>
             <Route path = '/bestseller' element = {<BestSeller/>}/>
+            <Route path='/user' element = {<UserPage/>}/>
 
         </Routes>
       <FooterPart/>

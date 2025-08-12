@@ -10,3 +10,6 @@ flex-direction: column;
 .pass{
     margin-top: 10px;
 }
+.login-form button {
+    margin-bottom: 10px;
+}

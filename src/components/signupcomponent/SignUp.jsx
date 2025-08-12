@@ -1,74 +1,76 @@
 import React from 'react'
 // import '../../styles/logincomponent/Login.css'
 import '../../styles/signupcomponent/SignUp.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import axios from 'axios'
+import toast from 'react-hot-toast'
 const Login = () => {
-    const [data,setdata] = useState ({
+
+       const navigator = useNavigate()
+    const [userData, setUserData] = useState({
         firstname : '',
         secondname : '',
         email : '',
         password : '',
         role : 'customer'
     })
-
-    const [errors,seterrors] = useState({});
-    // const [submit,setsubmit] = useState(false)
-
-    const handlechange = (e) => {
-        const {name,value} = e.target;
-        setdata(prev => ({...prev,[name] :value}))
-            // ...data,
-            // [name]:value
-        
-        // })
+    const [loading, setLoading] = useState(false)
+    const handleInputChange = (e) => {
+        const { value, name } = e.target
+        setUserData(prev=> ({ ...prev, [name]: value }))
     }
-
-
+    const handleRegister = async (data)=> {
+         await axios.post('https://ecommerce-project-backend-nodejs.onrender.com/api/auth/register', data, { } )
+        .then(res=> {
+            // console.log(res, ' response')
+            window.localStorage.setItem('access_token', res.data.token)
+            window.localStorage.setItem('user_data', JSON.stringify(res.data.data))
+            toast.success("Successfully Registered")
+            navigator('/')
+        })
+        .catch(err=> {
+            console.log(err, 'err')
+            toast.error(err.response.data.message)
+        }).finally(()=> {
+            setLoading(false)
+        })
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newErrors = validationForm(data);
-        seterrors(newErrors);
-        // setsubmit(true)
-
-        if (Object.keys(newErrors).length === 0) {
-            console.log ('form submited')
-            console.log({data})
-        }
-        else {
-            console.log ('form submited')
-        }
-    }
-
-
-
-
-
-    const validationForm = (inputs) => {
-        const errors = {};
-
-        if (!inputs.firstname) {
-            errors.firstname = 'Firstname required';
-        }
-        if (!inputs.secondname) {
-            errors.secondname = 'Secondname required';
-        }
+        setLoading(true)
         
-        if (!inputs.email) {
-            errors.email = 'Email required';
-        }
-        else if (!inputs.email.includes('@')) {
-            errors.email = 'incorrect email address'
-        }
+        const formData = { ...userData, name: `${userData.firstname} ${userData.secondname}`}
+        handleRegister(formData)
+    };
+
+
+
+    // const validationForm = (inputs) => {
+    //     const errors = {};
+
+    //     if (!inputs.firstname) {
+    //         errors.firstname = 'Firstname required';
+    //     }
+    //     if (!inputs.secondname) {
+    //         errors.secondname = 'Secondname required';
+    //     }
         
-        if (!inputs.password) {
-            errors.password = 'Passsword required';
-        }
-        else if(inputs.password.length < 6) {
-            errors.password = 'password must be at least 6 character long'
-        }
-        return errors;
-    }
+    //     if (!inputs.email) {
+    //         errors.email = 'Email required';
+    //     }
+    //     else if (!inputs.email.includes('@')) {
+    //         errors.email = 'incorrect email address'
+    //     }
+        
+    //     if (!inputs.password) {
+    //         errors.password = 'Passsword required';
+    //     }
+    //     else if(inputs.password.length < 6) {
+    //         errors.password = 'password must be at least 6 character long'
+    //     }
+    //     return errors;
+    // }
 return (
     <div className='login'>
         <div>
@@ -79,31 +81,33 @@ return (
                 <h1>Sign Up</h1>
                 <div className='first'>
                     <div>
-                        <input value={data.firstname} name='firstname' onChange={handlechange} type='text' placeholder='First Name'></input>
-                        {errors.firstname && (
+                        <input value={userData.firstname} name='firstname' onChange={handleInputChange} type='text' placeholder='First Name'></input>
+                        {/* {errors.firstname && (
                             <span className='error-alert'>{errors.firstname}</span>
-                        )}
+                        )} */}
                     </div>
                     <div>
-                        <input value={data.secondname} name='secondname' onChange={handlechange} type='text' placeholder='Last Name'></input> 
-                        {errors.secondname && (
+                        <input value={userData.secondname} name='secondname' onChange={handleInputChange} type='text' placeholder='Last Name'></input> 
+                        {/* {errors.secondname && (
                             <span className='error-alert'>{errors.secondname}</span>
-                        )} 
+                        )}  */}
                     </div>
                 </div>
                 <div className='general general1'>
-                    <input value={data.email} name='email' onChange={handlechange} type='email' placeholder='Email'></input><br/>
-                    {errors.email && (
+                    <input value={userData.email} name='email' onChange={handleInputChange} type='email' placeholder='Email'></input><br/>
+                    {/* {errors.email && (
                             <span className='error-alert'>{errors.email}</span>
-                        )}
+                        )} */}
                 </div>
                 <div className='general'>
-                    <input value={data.password} name='password' onChange={handlechange} type='password' placeholder='Enter Your Password'></input> <br/>
-                    {errors.password && (
+                    <input value={userData.password} name='password' onChange={handleInputChange} type='password' placeholder='Enter Your Password'></input> <br/>
+                    {/* {errors.password && (
                             <span className='error-alert'>{errors.password}</span>
-                        )}  
+                        )}   */}
                 </div>
-                 <button type='submit'>Sign Up</button>
+                 <button type='submit'
+                 disabled={loading}>{loading ? 'Loading.....' : 'Register' }
+                 </button>
             </form>
            
         </div>

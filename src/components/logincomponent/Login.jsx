@@ -1,60 +1,47 @@
 import React from 'react'
 import '../../styles/logincomponent/Login.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import axios from 'axios'
+import toast from 'react-hot-toast'
 
 const Login = () => {
-    const [data,setdata] = useState ({
-        username : '',
-        email : ''
+    const [userData, setUserData] = useState({
+        email: '',
+        password: '',
+        role :'customer'
     })
 
-    const [errors,seterrors] = useState({});
-    // const [submit,setsubmit] = useState(false)
-
-    const handlechange = (e) => {
-        const {name,value} = e.target;
-        setdata({
-            ...data,
-            [name]:value
-        })
+    const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
+    const handleInputChange = (e) => {
+        const { value, name } = e.target
+        setUserData(prev=> ({ ...prev, [name]: value }))
     }
-
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const newErrors = validationForm(data);
-        seterrors(newErrors);
-        // setsubmit(true)
-
-        if (Object.keys(newErrors).length === 0) {
-            console.log ('form submited')
-            console.log({data})
+        setLoading(true);
+        try {
+            const res = await axios.post(
+                'https://ecommerce-project-backend-nodejs.onrender.com/api/auth/login',
+                userData
+            );
+            const token = res.data.token;
+            if (token) {
+                localStorage.setItem('access_token', token);
+                toast.success('Login Successful');
+                navigate('/');
+            } else {
+                toast.error('Authentication token not received. Please try again.');
+            }
+        } catch (error) {
+            console.error(error, 'error');
+            const errorMessage = error.response?.data?.message || 'Login failed. Please check your credentials.';
+            toast.error(errorMessage);
+        } finally {
+            setLoading(false);
         }
-        else {
-            console.log ('form submited')
-        }
-    }
-
-
-
-
-
-    const validationForm = (inputs) => {
-        const errors = {};
-
-        if (!inputs.username) {
-            errors.username = 'Username required';
-        }
-        
-        if (!inputs.password) {
-            errors.password = 'Passsword required';
-        }
-        else if(inputs.password.length < 6) {
-            errors.password = 'password must be at least 6 character long'
-        }
-        return errors;
-    }
+    };
 
 
   return (
@@ -66,16 +53,16 @@ const Login = () => {
             <form className='login-form' onSubmit={handleSubmit}>
                 <h1>Login</h1>
                 <div>
-                    <input className='username' value={data.username} name='username' onChange={handlechange} type='text' placeholder='Username'></input><br/>
-                    {errors.username && (
+                    <input value={userData.email} name='email' onChange={handleInputChange} type='text' placeholder='email'></input><br/>
+                    {/* {errors.username && (
                             <span className='error-alert'>{errors.username}</span>
-                        )}
+                        )} */}
                 </div>
                 <div className='pass'>
-                    <input value={data.password} name='password' onChange={handlechange} type='password' placeholder='Enter Your Password'></input> <br/>
-                    {errors.password && (
+                    <input value={userData.password} name='password' onChange={handleInputChange} type='password' placeholder='Enter Your Password'></input> <br/>
+                    {/* {errors.password && (
                             <span className='error-alert'>{errors.password}</span>
-                        )}  
+                        )}   */}
                 </div>
                  <button type='submit'>Login</button>
                  <Link to = {'/signup'}>Don't have an account?</Link>

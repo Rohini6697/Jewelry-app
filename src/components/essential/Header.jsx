@@ -30,7 +30,8 @@ const Header = () => {
                     
                 </ul>
                 <ul>
-                    <FaUserCircle size={25} strokeWidth={1}/>
+                    <li><Link to = {'/user'} className='links'><FaUserCircle size={25} strokeWidth={1}/></Link></li>
+                    
                     <li><Link to = {'/login'} className='links'>Login</Link></li>
                     
                     <FaSearch size={25} strokeWidth={1}/> 
