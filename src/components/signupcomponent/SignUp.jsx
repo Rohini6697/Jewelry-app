@@ -8,7 +8,8 @@ const Login = () => {
         firstname : '',
         secondname : '',
         email : '',
-        password : ''
+        password : '',
+        role : 'customer'
     })
 
     const [errors,seterrors] = useState({});
@@ -16,10 +17,11 @@ const Login = () => {
 
     const handlechange = (e) => {
         const {name,value} = e.target;
-        setdata({
-            ...data,
-            [name]:value
-        })
+        setdata(prev => ({...prev,[name] :value}))
+            // ...data,
+            // [name]:value
+        
+        // })
     }
 
 
@@ -48,24 +50,17 @@ const Login = () => {
         if (!inputs.firstname) {
             errors.firstname = 'Firstname required';
         }
-        else if(inputs.username.length < 6) {
-            errors.username = 'username must be at least 6 character long'
-        }
         if (!inputs.secondname) {
             errors.secondname = 'Secondname required';
         }
-        else if(inputs.username.length < 6) {
-            errors.username = 'username must be at least 6 character long'
-        }
+        
         if (!inputs.email) {
             errors.email = 'Email required';
         }
         else if (!inputs.email.includes('@')) {
             errors.email = 'incorrect email address'
         }
-        // else if(inputs.username.length < 6) {
-        //     errors.username = 'username must be at least 6 character long'
-        // }
+        
         if (!inputs.password) {
             errors.password = 'Passsword required';
         }

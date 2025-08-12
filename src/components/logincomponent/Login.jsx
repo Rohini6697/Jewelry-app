@@ -78,7 +78,7 @@ const Login = () => {
                         )}  
                 </div>
                  <button type='submit'>Login</button>
-                 <Link to = {'/signup'}>Already have an accounte ?</Link>
+                 <Link to = {'/signup'}>Don't have an account?</Link>
             </form>
            
         </div>
