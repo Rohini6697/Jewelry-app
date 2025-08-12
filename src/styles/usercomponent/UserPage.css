@@ -5,11 +5,21 @@
     margin-bottom: 20px;
 }
 .user-details{
-    border: 2px solid darkblue;
+    /* border: 2px solid darkblue; */
     /* width: 50%; */
     width: 500px;
     font-family: 'Times New Roman', Times, serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+.logout{
+    width: 70%;
+    min-height: 30px;
+    background-color: transparent;
+    border: 1px solid gray;
+}
+.logout:hover{
+    background-color: rgb(213, 209, 209);
 }
