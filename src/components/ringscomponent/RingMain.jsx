@@ -7,16 +7,11 @@ import '../../styles/ringcomponent/RingMain.css'
 const RingMain = () => {
   return (
     <div>
-        <div>
-
-        </div>
-        <div className='main'>
-            
-            {
-                Rings.map((item,idx) => <RingsCards data = {item} key = {idx}/>)
-            }
-        </div>
-      
+      <div className='main'>      
+        {
+          Rings.map((item,idx) => <RingsCards data = {item} key = {idx}/>)
+        }
+      </div>  
     </div>
   )
 }

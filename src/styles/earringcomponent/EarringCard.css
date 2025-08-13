@@ -1,10 +1,12 @@
-.ring-card img{
+.cards>img{
     width: 300px;
-    height: 400px;
 }
-.ring-card h3,h4{
+.cards{
     display: flex;
     flex-direction: column;
+    /* justify-content:center; */
     align-items: center;
+}
+.cards h3,h4{
     font-family: 'Times New Roman', Times, serif;
-} 
+}

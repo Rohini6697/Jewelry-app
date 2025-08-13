@@ -10,7 +10,7 @@ const RingsCards = (props) => {
         <div className='ring-card'>
             <img src={data.image}/>
             <h3>{data.productname}</h3>
-            <h5>{data.price}</h5>
+            <h4>{data.price}</h4>
         </div>
       
     // </div>

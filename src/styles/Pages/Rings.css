@@ -1,15 +1,6 @@
+.ring-main{
+    /* border: 2px solid darkgreen; */
+}
 .ring-page{
     display: flex;
-    border: 2px solid rgb(184, 11, 11);
-}
-.ring-page>div {
-    display: flex;
-    /* border: 2px solid rgb(31, 184, 11); */
-}
-.ring-main{
-    border: 2px solid rgb(31, 184, 11);
-    display: flex;
-    justify-content: flex-start;
-    /* width: 550px; */
-    width: 100%;
 }
