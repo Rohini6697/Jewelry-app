@@ -1,4 +1,4 @@
-.main{
+.main-cards{
     /* border: 2px solid darkmagenta; */
     display: grid;
     grid-template-columns: repeat(3,1fr);
