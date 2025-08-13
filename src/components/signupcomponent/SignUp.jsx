@@ -72,25 +72,23 @@ const Login = () => {
     //     return errors;
     // }
 return (
-    <div className='login'>
+    <div className='signup'>
         <div>
             <img src='https://static.wixstatic.com/media/c837a6_424ef453cdd0450785ca5cceee609629~mv2.jpg/v1/fill/w_896,h_923,fp_0.44_0.43,q_85,enc_avif,quality_auto/A_close_up_of_an_earring_a_model_wearing_gold_rings.jpg'></img>
         </div>
         <div >
-            <form className='login-form' onSubmit={handleSubmit}>
+            <form className='signup-form' onSubmit={handleSubmit}>
                 <h1>Sign Up</h1>
-                <div className='first'>
-                    <div>
-                        <input value={userData.firstname} name='firstname' onChange={handleInputChange} type='text' placeholder='First Name'></input>
-                    </div>
-                    <div>
-                        <input value={userData.secondname} name='secondname' onChange={handleInputChange} type='text' placeholder='Last Name'></input> 
-                    </div>
+                <div>
+                    <input value={userData.firstname} name='firstname' onChange={handleInputChange} type='text' placeholder='First Name'></input>
                 </div>
-                <div className='general general1'>
+                <div>
+                    <input value={userData.secondname} name='secondname' onChange={handleInputChange} type='text' placeholder='Last Name'></input> 
+                </div>
+                <div className='signup-details signup-details1'>
                     <input value={userData.email} name='email' onChange={handleInputChange} type='email' placeholder='Email'></input><br/>
                 </div>
-                <div className='general'>
+                <div className='signup-details'>
                     <input value={userData.password} name='password' onChange={handleInputChange} type='password' placeholder='Enter Your Password'></input> <br/>
                 </div>
                  <button type='submit'

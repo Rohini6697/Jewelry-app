@@ -1,5 +1,6 @@
 .footer>div {
     /* border: 2px solid darkblue; */
+    /* border: 2px solid white; */
     background-color: black;
     display: flex;
     justify-content:center;
@@ -12,6 +13,7 @@
 .footer>div>div{
     /* border: 2px solid rgb(11, 184, 23); */
     /* width: 1200px; */
+    /* border: 2px solid white; */
     display: flex;
     justify-content: space-between;
     z-index: 999px;
@@ -71,4 +73,16 @@
 }
 .end-foot{
     width: 1200px;
+}
+@media (max-width:768px) {
+    .footer>div {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        
+    }
+    .down h1 {
+        font-size: 50px;
+    }
 }

@@ -1,67 +1,84 @@
 
-.login {
+.signup {
 
     display: flex;
+    /* flex-direction: column; */
     justify-content: center;
     gap: 20px;
     align-items: center;
     margin-bottom: 30px;
 }
-.login div:nth-child(1) {
+.signup div:nth-child(1) {
 }
-.login img {
-    width: 400px;
+.signup>div>img {
+    max-width: 400px;
 }
-.login-form>div>div{
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.signup-form>div>div{
     display: flex;
     flex-direction: column;
 }
-.first{
+.signup-first{
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.login-form h1 {
+.sign-form h1 {
     font-family: 'Times New Roman', Times, serif;
 }
 
-.login-form input[type="email"],
-.login-form input[type="password"]{
-    width: 420px;
+/* .sign-form input[type="email"],
+.sign-form input[type="password"]{
+    /* width: 420px; */
+/* }  */
+.signup-form>div>input{
+    height: 50px;
+    width: 300px;
 }
-.login-form input{
-    min-height: 50px;
-}
-.check  {
+/* .check  {
     display: flex;
     align-items: center;
-}
-.login button {
+} */
+.signup button {
     width: 100%;
     height: 50px;
     font-size: larger;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bolder;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     background-color: transparent;
     border: 1px solid grey
 }
-.login button:hover {
+.signup button:hover {
     background-color: rgb(181, 179, 179);
 }
 input {
     font-family: 'Times New Roman', Times, serif;
 }
-.error-alert {
+/* .error-alert {
     width: 100%;
     color: red;
     font-family: 'Times New Roman', Times, serif;
-}
-.general{
+} */
+/* .signup-details{
     display: flex;
     flex-direction: column;
     
 }
-.general1{
+.signup-details1{
     margin-top: 20px;
-}
+} */
+ @media (max-width:768px) {
+    .signup>div>img {
+        width: 200px;
+    }
+    .signup{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+ }
