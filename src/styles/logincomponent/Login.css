@@ -1,15 +1,49 @@
-.username{
+.login{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+.login>div img {
+    width: 400px;
+}
+/* .username{
     /* width: 100%; */
     /* border: 2px solid darkblue; */
-}
-.login-form>div{
+/* } */
+.login-form{
 /* border: 2px solid saddlebrown; */
 display: flex;
 flex-direction: column;
+gap: 10px;
+}
+.login-form>div input{
+    min-height: 50px;
+    width: 250px;
 }
 .pass{
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 .login-form button {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    min-height: 50px;
+    background-color: transparent;
+    border: 1px solid grey;
+}
+.login-form button:hover{
+    background-color: rgb(213, 212, 212);
+}
+@media (max-width:768px) {
+    .login{
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+        border: 2px solid darkblue;
+        text-align: center;
+    }
+    .login>div img{
+        max-width: 200px;
+        /* display: flex; */
+    }
 }

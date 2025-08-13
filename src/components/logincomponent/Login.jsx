@@ -54,15 +54,9 @@ const Login = () => {
                 <h1>Login</h1>
                 <div>
                     <input value={userData.email} name='email' onChange={handleInputChange} type='text' placeholder='email'></input><br/>
-                    {/* {errors.username && (
-                            <span className='error-alert'>{errors.username}</span>
-                        )} */}
                 </div>
                 <div className='pass'>
                     <input value={userData.password} name='password' onChange={handleInputChange} type='password' placeholder='Enter Your Password'></input> <br/>
-                    {/* {errors.password && (
-                            <span className='error-alert'>{errors.password}</span>
-                        )}   */}
                 </div>
                  <button type='submit'>Login</button>
                  <Link to = {'/signup'}>Don't have an account?</Link>
