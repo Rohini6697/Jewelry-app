@@ -1,6 +1,6 @@
-.earrings{
+.necklaces{
     display: flex;
-    /* background-color: aqua; */
+    /* border: 5px solid darkgoldenrod; */
     margin-bottom: 30px;
     justify-content: center;
 }

@@ -1,0 +1,10 @@
+.necklaces-card{
+    /* border: 2px solid rgb(21, 139, 0); */
+    /* background-color: lightcoral; */
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+.necklaces-card>img{
+    width: 300px;
+    height: 400px;
+}

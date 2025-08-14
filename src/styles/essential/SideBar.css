@@ -1,9 +1,22 @@
 .side-bar {
-    border: 2px solid darkblue;
+    /* border: 2px solid darkblue; */
     width: 250px;
     display: flex;
     flex-direction: column;
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.side-bar h2{
+    font-weight: lighter;
 }
 .links li {
     list-style-type: none;
+    margin-bottom: 10px;
+
+}
+.sidebar-links{
+    text-decoration: none;
+    color: black;
+    font-weight: lighter;
 }
