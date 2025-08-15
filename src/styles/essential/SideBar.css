@@ -1,5 +1,5 @@
 .side-bar {
-    /* border: 2px solid darkblue; */
+    /* border: 2px solid rgb(12, 139, 0); */
     width: 250px;
     display: flex;
     flex-direction: column;
@@ -7,7 +7,7 @@
     padding-left: 20px;
     padding-right: 20px;
 }
-.side-bar h2{
+.side-bar h1,h2{
     font-weight: lighter;
 }
 .links li {

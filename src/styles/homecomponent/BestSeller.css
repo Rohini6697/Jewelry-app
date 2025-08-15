@@ -4,8 +4,8 @@
     /* border: 2px solid darkorchid; */
 }
 .best-seller > div:nth-child(2) {
-    display: flex;
-    gap: 50px;
+    /* display: flex; */
+    /* gap: 50px; */
     /* justify-content: space-evenly; */
     /* width: 700px; */
     /* border: 2px solid rgb(68, 204, 50); */
@@ -17,4 +17,10 @@
 .best-seller>div {
     /* border: 2px solid darkgreen; */
     /* width: 100%; */
+}
+.images{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 30px;
+    /* border: 5px solid darkorchid; */
 }

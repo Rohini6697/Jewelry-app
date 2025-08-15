@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import BestSellerCards from './BestSellerCards';
-import {BestSellerData} from '../../data/BestSeller'
+// import {BestSellerData} from '../../data/BestSeller'
+import { Allproducts } from '../../data/AllProducts';
 import '../../styles/homecomponent/BestSeller.css'
 
 const BestSeller = () => {
+  // const Bestseller = () => {
+    const bestseller = Allproducts.filter((item) => item.isbestseller)
   return (
     <div className='best-seller'>
         <div>
@@ -13,7 +16,7 @@ const BestSeller = () => {
         </div>
         <div className='images'>
           {
-            BestSellerData.map((item,idx) => <BestSellerCards data = {item} key = {idx}/>)
+            bestseller.map((item,idx) => <BestSellerCards data = {item} key = {idx}/>)
           }
         </div>
       

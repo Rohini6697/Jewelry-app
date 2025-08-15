@@ -1,0 +1,5 @@
+.bestseller-outerbox{
+    display: flex;
+    /* border: 2px solid rgb(236, 9, 157); */
+    justify-content: center;
+}
