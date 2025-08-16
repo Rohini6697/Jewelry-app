@@ -6,7 +6,7 @@ import '../../styles/Pages/AllProducts.css'
 const AllProducts = () => {
   return (
     <div className='allproducts'>
-      <SideBar/>
+      <SideBar className='side'/>
       <AllProductsMain/>
       
     </div>

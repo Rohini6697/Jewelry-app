@@ -25,9 +25,11 @@ function App() {
   return (
     <BrowserRouter>
       <Header/>
-      <ProtectedRoutes/>
+      {/* <ProtectedRoutes/> */}
         <Routes>
-          
+            <Route element={<ProtectedRoutes />}>
+              <Route path="/user" element={<UserPage />} />
+            </Route>
             <Route path = '/' element = {<HomePage/>}/>
             {/* <Route path = '/shop' element = {<ShopPage/>}/> */}
             <Route path = '/allproducts' element = {<AllProducts/>}/>
@@ -42,7 +44,7 @@ function App() {
             <Route path = '/bracelets' element = {<Bracelets/>}/>
             <Route path = '/newin' element = {<NewIn/>}/>
             <Route path = '/bestseller' element = {<BestSeller/>}/>
-            <Route path='/user' element = {<UserPage/>}/>
+            {/* <Route path='/user' element = {<UserPage/>}/> */}
 
         </Routes>
       <FooterPart/>

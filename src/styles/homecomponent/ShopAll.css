@@ -1,7 +1,7 @@
 .shop-all {
     /* border: 2px solid darkcyan; */
     /* width: 100%; */
-    /* min-width: 200px; */
+    min-width: 200px;
     display: flex;
     justify-content: end;
     align-items: end;

@@ -13,10 +13,21 @@ body{
 .main{
     /* border: 2px solid darkblue; */
     display: flex;
-    justify-content: center;
+    justify-content:center;
 }
-.bestseller {
+.home-bestseller {
     /* border: 2px solid darkblue; */
     display: flex;
     justify-content: center;
+}
+.home-page{
+    /* display: flex; */
+    /* justify-content: end; */
+    /* background-color: rgb(224, 199, 245); */
+}
+.home-content{
+    /* border: 5px solid darkviolet; */
+    display: flex;
+    justify-content:flex-end;
+    width: 700px;
 }

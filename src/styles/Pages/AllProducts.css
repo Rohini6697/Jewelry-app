@@ -1,3 +1,6 @@
 .allproducts{
     display: flex;
 }
+.side{
+    border: 5px solid darkblue;
+}

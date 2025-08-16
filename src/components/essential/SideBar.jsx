@@ -18,7 +18,7 @@ const SideBar = () => {
                 <li><Link to = {'/bracelets'} className='sidebar-links'>Bracelets</Link></li>
                 <li><Link to = {'/newin'} className='sidebar-links'>New In</Link></li>
                 <li><Link to = {'/bestseller'} className='sidebar-links'>Best Seller</Link></li>
-                </div>
+              </div>
         </div>
         <div>
             <h2>Filter by</h2>
