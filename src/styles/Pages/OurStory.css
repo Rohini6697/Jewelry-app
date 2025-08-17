@@ -1,0 +1,22 @@
+.front-image{
+    max-width: 200px;
+    height: 300px;
+}
+.main{
+    /* border: 2px solid darkblue; */
+    /* width: 500px; */
+}
+.image-part{
+    /* border: 5px solid darkturquoise; */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.we-are{
+    position: absolute;
+    margin-right: 30px;
+    z-index: 4;
+}
+.main-content{
+    position: relative;
+}

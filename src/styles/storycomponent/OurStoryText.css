@@ -1,0 +1,19 @@
+.we{
+    position: absolute;
+    /* border: 10px solid deeppink; */
+    width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* gap: 50px; */
+    justify-content: end;
+    height: 400px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.we h1{
+    font-size: 70px;
+    font-weight: lighter;
+}
+.we h3{
+    font-weight: lighter;
+}

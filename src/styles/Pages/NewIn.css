@@ -1,0 +1,5 @@
+.new-in{
+    display: flex;
+    /* border: 8px solid darkblue; */
+    justify-content: center;
+}

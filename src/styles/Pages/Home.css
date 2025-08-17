@@ -2,7 +2,7 @@ body{
     margin: auto 0;
     padding: 0;
 }
-.front-image {
+.home-front-image {
     width: 350px;
     height: 500px;
     position: relative;
@@ -10,9 +10,14 @@ body{
     /* margin-left: 200px; */
     /* margin: 40px; */
 }
-.main{
+.main-home{
     /* border: 2px solid darkblue; */
     display: flex;
+    /* width: 100px; */
+    /* width: 500px; */
+    /* height: 600px; */
+    /* width: 400px; */
+    align-items: center;
     justify-content:center;
 }
 .home-bestseller {
@@ -22,7 +27,8 @@ body{
 }
 .home-page{
     /* display: flex; */
-    /* justify-content: end; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
     /* background-color: rgb(224, 199, 245); */
 }
 .home-content{

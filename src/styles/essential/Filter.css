@@ -1,0 +1,44 @@
+.price-filter-container {
+  padding: 20px;
+}
+
+.custom-slider {
+  height: 6px;
+  background: #ddd;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+
+.custom-track {
+  background: #007bff;
+  height: 6px;
+  border-radius: 4px;
+}
+
+.custom-thumb {
+  height: 18px;
+  width: 18px;
+  background: #007bff;
+  border-radius: 50%;
+  cursor: grab;
+  top: -6px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.box {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.box img {
+  width: 100px;
+  height: auto;
+}

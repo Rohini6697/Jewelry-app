@@ -20,6 +20,7 @@ import BestSeller from './components/pages/BestSeller';
 import SignUp from './components/signupcomponent/SignUp';
 import ProtectedRoutes from './hooks/UseProtectedRoutes';
 import UserPage from './components/usercomponent/UserPage';
+import ProductView from './components/pages/ProductView';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path = '/bracelets' element = {<Bracelets/>}/>
             <Route path = '/newin' element = {<NewIn/>}/>
             <Route path = '/bestseller' element = {<BestSeller/>}/>
+            <Route path = '/productview/:idx' element = {<ProductView/>}/>
             {/* <Route path='/user' element = {<UserPage/>}/> */}
 
         </Routes>

@@ -1,0 +1,8 @@
+.new-card img{
+    width: 300px;
+    height: 400px;
+}
+.new-card{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}

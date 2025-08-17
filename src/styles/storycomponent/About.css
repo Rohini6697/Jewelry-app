@@ -1,0 +1,40 @@
+.about>div{
+    display: flex;
+    justify-content: center;
+    /* gap: 50px; */
+    /* border: 2px solid saddlebrown; */
+    /* position: sticky; */
+    /* top: 0; */
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 80px;
+}
+.about>div>div{
+    /* border: 5px solid darkblue; */
+    max-width: 800px;
+    /* position: sticky; */
+}
+.about>div>div img{
+    width: 100%;
+}
+.about>div>div h3,h4{
+    font-weight: lighter;
+}
+.mission{
+    display: flex;
+    gap: 50px;
+    position: sticky;
+    top: 0;
+}
+.quality{
+    display: flex;
+    gap: 50px;
+    position: sticky;
+    top: 60px;
+}
+.sustainability{
+    display: flex;
+    gap: 33px;
+    position: sticky;
+    top: 120px;
+}

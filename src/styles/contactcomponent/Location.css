@@ -1,0 +1,138 @@
+* {
+    /* margin: 0; */
+    /* padding: 0; */
+}
+
+*,
+*:before,
+*:after {
+    /* box-sizing: border-box; */
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+body {
+    font-family: sans-serif;
+}
+
+.clearfix {
+    list-style-type: none;
+    /* border: 2px solid darkblue; */
+    display: flex;
+    /* width: 500px; */
+    justify-content: center;
+    gap: 50px;
+}
+
+
+.clearfix a {
+    text-decoration: none;
+    color: #000;
+}
+header{
+    width: 100%;
+}
+div.home{
+    width: 20%;
+    float: left;
+}
+/* div.home img{
+    display: block;
+    width: 50px;
+    margin: 0 auto;
+    position: relative;
+    -webkit-transform: translateY(40%);
+    -moz-transform: translateY(40%);
+    -ms-transform: translateY(40%);
+    -o-transform: translateY(40%);
+    transform: translateY(40%);
+} */
+.container-fluid{
+    /* width: 80%; */
+    width: 500px;
+    float: right;
+    /* border: 2px solid darkgoldenrod; */
+}
+.container-fluid ul{
+	width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container-fluid ul li {
+    float: left;
+    width: 20%;
+    line-height: 60px;
+    text-align: center;
+    /* border: 2px solid deeppink; */
+    
+}
+span{
+	display: block;
+	height: 3px;
+	/* width: 20%; */
+    /* width: 50px; */
+	background: black;
+	position: relative;
+	/* left: 0; */
+    transition: 0.3s ease-in-out;
+}
+section{
+    margin-top: 50px;
+}
+/* h1{
+  display: block;
+  width: 100%;
+	/* text-align: center; */
+	/* margin: 0 auto; */
+	/* font-weight: 400; */
+	/* font-size: 30px; */
+/* } */ 
+section>p{
+	text-align: center;
+	/* margin: 30px auto; */
+	/* padding: 0 10%; */
+}
+section>div{
+	width: 90%;
+	margin: 0 auto;
+	display: none;
+}
+section>div.activ{
+	display: block;
+}
+div.content h2{
+	margin: 10px 0 40px 20%;
+}
+div.content p{
+    display: block;
+    margin: 0 auto;
+	width: 60%;
+    line-height: 1.7;
+}
+.page1{
+    display: flex;
+    gap: 30px;
+}
+.page1 img{
+    max-width: 700px;
+}
+.page1>div{
+    border: 2px solid darkgreen;
+}
+
+@media screen and (max-width: 600px) {
+	div.content h2{
+		margin: 10px 0 40px 5%;
+	}
+	div.content p{
+		width: 95%; 
+	}
+}

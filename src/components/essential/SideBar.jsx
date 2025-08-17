@@ -1,6 +1,12 @@
 import React from 'react'
 import '../../styles/essential/SideBar.css'
 import { Link } from 'react-router-dom';
+// import DoubleRangeSlider from './Filter';
+// import RangeSlider from './Filter';
+// import AllProducts from './Filter';
+import FilterSlider from './Filter';
+
+// import {Products} from './Filter'
 
 
 const SideBar = () => {
@@ -23,6 +29,10 @@ const SideBar = () => {
         <div>
             <h2>Filter by</h2>
             <hr/>
+            {/* <Products/> */}
+            {/* <DoubleRangeSlider/> */}
+            {/* <RangeSlider/> */}
+            <FilterSlider/>
         </div>
       
     </div>
