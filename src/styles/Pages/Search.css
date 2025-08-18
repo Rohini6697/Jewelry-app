@@ -1,0 +1,12 @@
+.search-container{
+    background-color: black;
+}
+.search-container input{
+    color: white;
+    background-color: black;
+}
+.product-heading{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 50px;
+}

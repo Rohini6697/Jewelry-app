@@ -21,6 +21,7 @@ import SignUp from './components/signupcomponent/SignUp';
 import ProtectedRoutes from './hooks/UseProtectedRoutes';
 import UserPage from './components/usercomponent/UserPage';
 import ProductView from './components/pages/ProductView';
+import Search from './components/pages/Search';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
             <Route path = '/newin' element = {<NewIn/>}/>
             <Route path = '/bestseller' element = {<BestSeller/>}/>
             <Route path = '/productview/:idx' element = {<ProductView/>}/>
+            <Route path = '/search' element = {<Search/>}/>
             {/* <Route path='/user' element = {<UserPage/>}/> */}
 
         </Routes>

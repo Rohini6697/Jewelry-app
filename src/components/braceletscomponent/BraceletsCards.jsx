@@ -7,7 +7,7 @@ const BraceletsCard = (props) => {
     // console.log("Product idx:", data.idx);
 
   return (
-    <Link to={`/productview`} className="bracelets-card-link">
+    <Link to={`/productview/${data.idx}`} className="bracelets-card-link">
       <div className='bracelets-card'>
         <img src={data.image} alt={data.product} />
         <h3>{data.product}</h3>

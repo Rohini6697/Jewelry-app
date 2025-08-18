@@ -1,19 +1,22 @@
-.we{
+.we-txt{
     position: absolute;
+    top: 100px;
+    left: 130px;
     /* border: 10px solid deeppink; */
-    width: 500px;
+    width: 300px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    /* gap: 50px; */
+    gap: 80px;
     justify-content: end;
     height: 400px;
     font-family: 'Times New Roman', Times, serif;
 }
-.we h1{
-    font-size: 70px;
+.we-txt h1{
+    font-size: 40px;
     font-weight: lighter;
 }
-.we h3{
+.we-txt h3{
     font-weight: lighter;
+    font-size: 15px;
 }

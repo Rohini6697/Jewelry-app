@@ -10,7 +10,7 @@
     /* border: 5px solid darkturquoise; */
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 100px;
 }
 .we-are{
     position: absolute;

@@ -34,7 +34,7 @@ const Header = () => {
                     
                     <li><Link to = {'/login'} className='links'>Login</Link></li>
                     
-                    <FaSearch size={25} strokeWidth={1}/> 
+                    <Link to = {'/search'} className='search'><FaSearch size={25} strokeWidth={1}/></Link>
                     <FaRegHeart size={25} strokeWidth={1}/> 
                     <BiLockAlt size={25} strokeWidth={1}/> 
                 </ul>

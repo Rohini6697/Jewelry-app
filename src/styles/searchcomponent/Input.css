@@ -1,0 +1,30 @@
+.input-container{
+    border: 2px solid darkblue;
+    display: flex;
+    justify-content: center;
+    /* height: 100px; */
+    gap: 20px;
+    align-items: center;
+}
+.input-container input{
+    width: 85%;
+    height: 40px;
+    border: none;
+}
+.input-container input::placeholder{
+    color: white;
+    font-size: 20px;
+}
+.line{
+    /* color: darkmagenta; */
+    width: 92%;
+    height: 1px;
+    /* background-color: darkorchid; */
+    background-color: white;
+}
+.search-icon{
+    color: white;
+}
+.cross-icon{
+    color: white;
+}

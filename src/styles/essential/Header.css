@@ -45,6 +45,9 @@
     font-weight: bolder;
     font-size: 17px;
 }
+.search{
+    color: black;
+}
 @media (max-width : 768px) {
     .navigation-bar-container{
         display: flex;
