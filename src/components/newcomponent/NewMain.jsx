@@ -15,7 +15,7 @@ const NewMain = () => {
     return (
         <div className='new-main'>
             {
-                newProducts.map((item,idx) => <NewCard data = {item} key = {idx}/>)
+                Allproducts.map((item,idx) => <NewCard data = {item} key = {idx}/>)
             }
         </div>
   )

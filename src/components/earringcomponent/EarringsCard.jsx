@@ -1,17 +1,22 @@
 import React from 'react'
 import '../../styles/earringcomponent/EarringCard.css'
+import { Link } from 'react-router-dom';
+
 
 const EarringsCard = (props) => {
   const {data} = props;
   if (!data) return null
   return (
-    <div className='cards'>
-        <img src={data?.image || 'fallback.jpg'} alt={data?.product || 'earring'} />
+    <Link to={`/productview/${data.idx}`} className="earring-card-link">
+      <div className='ear-card'>
+        <img src={data.image} alt={data.product} />
         <h3>{data.product}</h3>
         <h4>{data.price}</h4>
+        {/* console.log("Product idx:", data.idx); */}
 
-      
-    </div>
+        
+      </div>
+    </Link>
   )
 }
 

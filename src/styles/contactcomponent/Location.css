@@ -125,7 +125,7 @@ div.content p{
     max-width: 700px;
 }
 .page1>div{
-    border: 2px solid darkgreen;
+    /* border: 2px solid darkgreen; */
 }
 
 @media screen and (max-width: 600px) {

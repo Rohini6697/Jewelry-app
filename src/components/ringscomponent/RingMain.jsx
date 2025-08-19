@@ -1,7 +1,8 @@
 import React from 'react'
 import RingsCards from './RingsCards'
-import { Rings } from '../../data/Rings'
+// import { Rings } from '../../data/Rings'
 import '../../styles/ringcomponent/RingMain.css'
+import { Allproducts } from '../../data/AllProducts'
 // import { Earring } from '../../data/Earrings'
 
 const RingMain = () => {
@@ -9,7 +10,7 @@ const RingMain = () => {
     <div>
       <div className='main-cards'>      
         {
-          Rings.map((item,idx) => <RingsCards data = {item} key = {idx}/>)
+          Allproducts.filter(item => item.category === 'rings').map((item,idx) => <RingsCards data = {item} key = {idx}/>)
         }
       </div>  
     </div>

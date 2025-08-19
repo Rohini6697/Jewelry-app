@@ -1,14 +1,15 @@
 import React from 'react'
-import { Earring } from '../../data/Earrings'
+// import { Earring } from '../../data/Earrings'
 import EarringsCard from './EarringsCard'
 import '../../styles/earringcomponent/EarringMain.css'
+import { Allproducts } from '../../data/AllProducts'
 // import EarringsCard from './EarringsCard'
 
 const EarringsMain = () => {
   return (
     <div className='earcard-main'>
         {
-            Earring.filter(Boolean).map((item,idx) => <EarringsCard data={item} key={idx}/>)
+            Allproducts.filter(item => item.category === 'earrings').map((item,idx) => <EarringsCard data={item} key={idx}/>)
         }
       
     </div>

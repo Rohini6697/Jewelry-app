@@ -1,10 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Bracelets } from '../../data/Bracelets';
+// import { Bracelets } from '../../data/Bracelets';
+import {Allproducts} from '../../data/AllProducts'
 
 const ProductView = () => {
-  const { idx } = useParams();  // read idx from URL
-  const product = Bracelets[idx]; // get product from your array
+  const { idx } = useParams(); 
+  const product = Allproducts[idx]; 
 
   if (!product) return <h1>Product not found!</h1>;
 

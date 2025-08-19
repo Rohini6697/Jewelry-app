@@ -29,8 +29,8 @@ const Location = () => {
         <div className='page1'>
           <img src="https://static.wixstatic.com/media/c837a6_9151948814c24b96bf212017dd6f4ea2~mv2.jpg/v1/fill/w_910,h_499,al_c,q_85,enc_avif,quality_auto/wixagency_Jewelry_store_interior_design_white_and_gold_color_sc_19ab478d-64c0-42f2-9481-4a.jpg" alt="Store 2" />
           <div>
-                <h3>San Francisco Store</h3>
-                <p>500 Terry Francine Street, San Francisco, CA 94158</p>
+                <h3>San Jose</h3>
+                <p>500 Terry Francine Street,</p>
                 <p>📞 123-456-7890</p>
                 <p><b>Opening Hours:</b> Mon-Fri 10:00am - 8:00pm</p>
           </div>
