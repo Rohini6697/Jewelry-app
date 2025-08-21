@@ -18,20 +18,23 @@ import AllProducts from './components/pages/AllProducts';
 // import BestSeller from './components/homecomponents/BestSeller';
 import BestSeller from './components/pages/BestSeller';
 import SignUp from './components/signupcomponent/SignUp';
-import ProtectedRoutes from './hooks/UseProtectedRoutes';
+// import ProtectedRoutes from './hooks/UseProtectedRoutes';
 import UserPage from './components/usercomponent/UserPage';
 import ProductView from './components/pages/ProductView';
 import Search from './components/pages/Search';
+import NotFound from './components/pages/NotFound';
+import ErrorBoundary from './data/ErrorHandle';
 
 function App() {
   return (
     <BrowserRouter>
       <Header/>
       {/* <ProtectedRoutes/> */}
+      <ErrorBoundary fallback={<div>Error happend</div>}>
         <Routes>
-            <Route element={<ProtectedRoutes />}>
-              <Route path="/user" element={<UserPage />} />
-            </Route>
+            {/* <Route element={<ProtectedRoutes />}> */}
+              {/* <Route path="/user" element={<UserPage />} /> */}
+            {/* </Route> */}
             <Route path = '/' element = {<HomePage/>}/>
             {/* <Route path = '/shop' element = {<ShopPage/>}/> */}
             <Route path = '/allproducts' element = {<AllProducts/>}/>
@@ -46,11 +49,14 @@ function App() {
             <Route path = '/bracelets' element = {<Bracelets/>}/>
             <Route path = '/newin' element = {<NewIn/>}/>
             <Route path = '/bestseller' element = {<BestSeller/>}/>
-            <Route path = '/productview/:idx' element = {<ProductView/>}/>
+            <Route path = '/productview/:id' element = {<ProductView/>}/>
             <Route path = '/search' element = {<Search/>}/>
-            {/* <Route path='/user' element = {<UserPage/>}/> */}
+            <Route path = '/*' element = {<NotFound/>}/>
+            <Route path='/user' element = {<UserPage/>}/>
 
         </Routes>
+      </ErrorBoundary>
+
       <FooterPart/>
     </BrowserRouter>
   );

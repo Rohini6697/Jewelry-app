@@ -7,7 +7,7 @@ const EarringsCard = (props) => {
   const {data} = props;
   if (!data) return null
   return (
-    <Link to={`/productview/${data.idx}`} className="earring-card-link">
+    <Link to={`/productview/${data.id}`} className="earring-card-link">
       <div className='ear-card'>
         <img src={data.image} alt={data.product} />
         <h3>{data.product}</h3>

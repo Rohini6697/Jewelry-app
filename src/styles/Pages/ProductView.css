@@ -1,0 +1,133 @@
+.add-product-view{
+    /* border: 2px solid rebeccapurple; */
+    display: flex;
+    justify-content: center;
+}
+.first{
+    border: 2px solid darkblue;
+    width: 200px;
+}
+.second{
+    border: 2px solid darkgoldenrod;
+    width: 600px;
+
+}
+.third{
+    border: 2px solid darkorchid;
+    width: 400px;
+    padding: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.product-view-image{
+    object-fit: cover;
+    width: 100%;
+}
+.view-counter{
+    width: 200px;
+}
+.view-button>button{
+    width: 400px;
+    height: 50px;
+    border-radius: 50px;
+    
+    font-weight: bolder;
+}
+.view-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.view-button1{
+    margin-bottom: 20px;
+    color: white;
+    background-color: black;
+    border: none;
+}
+.view-button2{
+    background-color: transparent;
+    border: 1px solid black;
+}
+.view-button3{
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.view-info{
+    /* border: 2px solid darkblue; */
+}
+.view-info>div>div{
+    /* border: 2px solid darkgoldenrod; */
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    /* gap: 50px; */
+    align-items: center;
+    margin-top: 10px;
+
+}
+.view-info>div>div>button{
+    background-color: transparent;
+    border: none;
+    /* margin-top: 40px; */
+    /* border: 2px solid saddlebrown; */
+    height: 100%;
+    /* width: 100%; */
+}
+.desc-info{
+    /* border: 2px solid darkorchid; */
+    border-bottom: 1px solid black;
+    height: 80px;
+    /* margin-bottom: 50px; */
+    /* border: 2px solid darkblue; */
+    /* height: 50px; */
+    background-color: transparent;
+    text-align: center;
+    /* margin-bottom: 80px; */
+}
+.information-products{
+    display: flex;
+    justify-content: center;
+    /* gap: 140px; */
+    align-items: center;
+}
+.information-products h3{
+    margin-right: 150px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+
+ } 
+.refund{
+    display: flex;
+    justify-content: center;
+    /* gap: 140px; */
+    align-items: center;
+} 
+.refund h3{
+    margin-right: 60px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+
+}
+.shipping{
+    display: flex;
+    justify-content: center;
+    /* gap: 140px; */
+    align-items: center;
+}
+.shipping h3{
+    margin-right: 145px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+.social-icons{
+    /* border: 2px solid darkblue; */
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    margin-left: 50px;
+    /* justify-content: center; */
+}

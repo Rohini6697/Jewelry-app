@@ -7,7 +7,7 @@ const NewMain = () => {
     const today = new Date();
 
     const newProducts = Allproducts.filter((item) => {
-        if (!item.addedDate) return false; // safety
+        if (!item.addedDate) return false;
         const productDate = new Date(item.addedDate);
         const diffInDays = (today - productDate) / (1000 * 60 * 60 * 24);
         return diffInDays <= 30;

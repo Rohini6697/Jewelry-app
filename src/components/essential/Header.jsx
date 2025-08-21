@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../../styles/essential/Header.css'
 import { FaUserCircle, FaSearch, FaRegHeart} from "react-icons/fa";
-import { CiLock } from "react-icons/ci"; 
+// import { CiLock } from "react-icons/ci"; 
 import { BiLockAlt } from "react-icons/bi";
 
 
@@ -35,8 +35,8 @@ const Header = () => {
                     <li><Link to = {'/login'} className='links'>Login</Link></li>
                     
                     <Link to = {'/search'} className='search'><FaSearch size={25} strokeWidth={1}/></Link>
-                    <FaRegHeart size={25} strokeWidth={1}/> 
-                    <BiLockAlt size={25} strokeWidth={1}/> 
+                    <Link to = {'/wishlist'} ><FaRegHeart size={25} strokeWidth={1}/> </Link>
+                    <Link to = {'cart'}><BiLockAlt size={25} strokeWidth={1}/> </Link>
                 </ul>
             </div>
         </nav>

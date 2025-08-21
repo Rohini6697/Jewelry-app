@@ -6,7 +6,7 @@ import '../../styles/allproductcomponent/AllProductsCard.css'
 const AllProductsCard = (props) => {
     const {data} = props
   return (
-    <Link to={`/productview/${data.idx}`} className="allproducts-card-link">
+    <Link to={`/productview/${data.id}`} className="allproducts-card-link">
       <div className='allproducts-card'>
         <img src={data.image} alt={data.product} />
         <h3>{data.product}</h3>

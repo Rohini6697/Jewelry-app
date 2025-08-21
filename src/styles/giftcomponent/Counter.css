@@ -1,6 +1,7 @@
 .counts {
     display: flex;
     border: 1px solid grey;
+    width: 100px;
 }
 .counts>div{
     /* border: 2px solid darkblue; */

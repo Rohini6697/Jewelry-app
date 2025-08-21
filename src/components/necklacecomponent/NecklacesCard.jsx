@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const NecklacesCard = (props) => {
     const {data} = props
   return (
-    <Link to={`/productview/${data.idx}`} className="Necklace-card-link">
+    <Link to={`/productview/${data.id}`} className="Necklace-card-link">
           <div className='necklaces-card'>
             <img src={data.image} alt={data.product} />
             <h3>{data.product}</h3>

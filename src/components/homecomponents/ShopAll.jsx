@@ -6,7 +6,7 @@ const ShopAll = () => {
   return (
     <div className='shop-all'>
       <div>
-        <h2><Link to = {'/allproducts'} onClick={console.log('hey')}>Shop All</Link></h2>
+        <Link to = {'/allproducts'}>Shop All</Link>
         {/* <li><Link to = {'/allproducts'} className='sidebar-links'>All Products</Link></li> */}
         
       </div>
