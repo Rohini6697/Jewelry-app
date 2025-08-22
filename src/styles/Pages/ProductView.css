@@ -80,7 +80,7 @@
 .desc-info{
     /* border: 2px solid darkorchid; */
     border-bottom: 1px solid black;
-    height: 80px;
+    height: 100px;
     /* margin-bottom: 50px; */
     /* border: 2px solid darkblue; */
     /* height: 50px; */
@@ -130,4 +130,32 @@
     gap: 10px;
     margin-left: 50px;
     /* justify-content: center; */
+}
+.related-main{
+    border: 2px solid darkgoldenrod;
+    display: flex;
+    /* width: 100%; */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    white-space: nowrap;
+    -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  gap: 20px;
+    animation: scroll 20s linear infinite;
+
+}
+.related-card{
+    border: 2px solid darkblue;
+    flex-shrink: 0; /* Prevents items from shrinking */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+.related-card img{
+    width: 300px;
+    height: 400px;
+    
+}
+.over{
+    /* overflowX: "auto" */
 }

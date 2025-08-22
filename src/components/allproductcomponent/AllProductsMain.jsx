@@ -5,11 +5,11 @@ import { Allproducts } from '../../data/AllProducts';
 import '../../styles/allproductcomponent/AllProductsMain.css'
 
 const AllProductsMain = (props) => {
-    const {data} = props
+    const {products} = props
   return (
     <div className='allproducts-main'>
         {
-            Allproducts.map((item,idx) => <AllProductsCard data = {item} key = {idx}/>)
+            products.map((item,idx) => <AllProductsCard data = {item} key = {idx}/>)
         }
       
     </div>
