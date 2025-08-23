@@ -1,63 +1,61 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter,Routes, Route } from 'react-router-dom';
-import Header from './components/essential/Header';
+// import Header from './components/essential/Header';
 import HomePage from './components/pages/Home';
 import ShopPage from './components/pages/Shop';
 import OurstoryPage from './components/pages/OurStory';
 import GiftcardPage from './components/pages/GiftCard';
 import ContactPage from './components/pages/Contact';
 import LoginPage from './components/pages/Login';
-import FooterPart from './components/essential/FooterPart';
-import Rings from './components/pages/Rings';
-import Earrings from './components/pages/Earrings';
-import Necklaces from './components/pages/Necklaces';
-import Bracelets from './components/pages/Bracelets';
-import NewIn from './components/pages/NewIn';
+// import FooterPart from './components/essential/FooterPart';
+
 import AllProducts from './components/pages/AllProducts';
 // import BestSeller from './components/homecomponents/BestSeller';
-import BestSeller from './components/pages/BestSeller';
 import SignUp from './components/signupcomponent/SignUp';
-// import ProtectedRoutes from './hooks/UseProtectedRoutes';
+import ProtectedRoutes from './hooks/UseProtectedRoutes';
 import UserPage from './components/usercomponent/UserPage';
-import ProductView from './components/pages/ProductView';
-import Search from './components/pages/Search';
+// import Search from './components/pages/Search';
 import NotFound from './components/pages/NotFound';
 import ErrorBoundary from './data/ErrorHandle';
+import DashBoard from './components/DashBoard';
+import AuthLayout from './layout/AuthLayout';
+import PublicLayout from './layout/PublicLayout';
+import AdminLayout from './layout/AdminLayout';
+import ProductView from './components/pages/ProductView';
+
 
 function App() {
   return (
     <BrowserRouter>
-      <Header/>
+      {/* <Header/> */}
       {/* <ProtectedRoutes/> */}
       <ErrorBoundary fallback={<div>Error happend</div>}>
         <Routes>
-            {/* <Route element={<ProtectedRoutes />}> */}
-              {/* <Route path="/user" element={<UserPage />} /> */}
-            {/* </Route> */}
+          <Route element = {<PublicLayout/>}>
             <Route path = '/' element = {<HomePage/>}/>
-            {/* <Route path = '/shop' element = {<ShopPage/>}/> */}
             <Route path = '/allproducts' element = {<AllProducts/>}/>
             <Route path = '/ourstory' element = {<OurstoryPage/>}/>
             <Route path = '/giftcard' element = {<GiftcardPage/>}/>
             <Route path = '/contact' element = {<ContactPage/>}/>
+            <Route path='/user' element = {<UserPage/>}/>
+            <Route path = '/*' element = {<NotFound/>}/>
+            <Route path = '/productview/:id' element = {<ProductView/>}/>
+          
+          </Route>
+          <Route element = {<AuthLayout/>}>
             <Route path = '/login' element = {<LoginPage/>}/>
             <Route path = '/signup' element = {<SignUp/>}/>
-            <Route path = '/rings' element = {<Rings/>}/>
-            <Route path = '/earrings' element = {<Earrings/>}/>
-            <Route path = '/necklaces' element = {<Necklaces/>}/>
-            <Route path = '/bracelets' element = {<Bracelets/>}/>
-            <Route path = '/newin' element = {<NewIn/>}/>
-            <Route path = '/bestseller' element = {<BestSeller/>}/>
-            <Route path = '/productview/:id' element = {<ProductView/>}/>
-            <Route path = '/search' element = {<Search/>}/>
-            <Route path = '/*' element = {<NotFound/>}/>
-            <Route path='/user' element = {<UserPage/>}/>
+          </Route>
+          <Route element = {<ProtectedRoutes><AdminLayout/></ProtectedRoutes>}>
+            <Route path='/admin/dashboard' element = {<DashBoard/>}/>
+          </Route>
+            {/* <Route path = '/search' element = {<Search/>}/> */}
 
         </Routes>
       </ErrorBoundary>
 
-      <FooterPart/>
+      {/* <FooterPart/> */}
     </BrowserRouter>
   );
 }

@@ -9,7 +9,7 @@ const AllProducts = () => {
   const [filterOptions, setFilterOptions] = useState({
     category: '',
     price: '',
-    bestseller: false,
+    bestseller: false
     // addedDate: false
   })
 
@@ -20,9 +20,32 @@ const AllProducts = () => {
    * @param {String} type - type of filter 
    * @param {String} value - value for the type 
    */
+  // const handleFilter = (type, value) => {
+    // setFilterOptions(prev=> ({ ...prev, [type]: value}))
+  // }
+
+
   const handleFilter = (type, value) => {
-    setFilterOptions(prev=> ({ ...prev, [type]: value}))
+  if (type === 'category') {
+    setFilterOptions(prev => ({
+      ...prev,
+      category: value,
+      bestseller: false  
+    }));
+  } else if (type === 'bestseller') {
+    setFilterOptions(prev => ({
+      ...prev,
+      bestseller: value,
+      category: ''     
+    }));
+  } else {
+    setFilterOptions(prev => ({ ...prev, [type]: value }));
   }
+};
+
+  const [query, setQuery] = useState('');
+
+  
 
   useEffect(()=> {
     let productList = Allproducts
@@ -35,6 +58,13 @@ const AllProducts = () => {
     // if (filterOptions.newIn) {
     //   productList = productList.filter(prod => prod.)
     // }
+
+    // useEffect(() => {
+  //     const filtered = Allproducts.filter(item =>
+  //       item.product.toLowerCase().includes(query.toLowerCase())
+  //     );
+  //     setFilteredItems(filtered);
+  //   }, [query]);
 
     setProducts(productList)
   }, [filterOptions])

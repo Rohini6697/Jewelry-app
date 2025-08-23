@@ -74,7 +74,7 @@ div.home{
     /* border: 2px solid deeppink; */
     
 }
-span{
+.container-fluid span{
 	display: block;
 	height: 3px;
 	/* width: 20%; */

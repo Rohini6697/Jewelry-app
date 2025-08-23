@@ -4,16 +4,16 @@
     justify-content: center;
 }
 .first{
-    border: 2px solid darkblue;
+    /* border: 2px solid darkblue; */
     width: 200px;
 }
 .second{
-    border: 2px solid darkgoldenrod;
+    /* border: 2px solid darkgoldenrod; */
     width: 600px;
 
 }
 .third{
-    border: 2px solid darkorchid;
+    /* border: 2px solid darkorchid; */
     width: 400px;
     padding: 30px;
     font-family: 'Times New Roman', Times, serif;
@@ -132,7 +132,7 @@
     /* justify-content: center; */
 }
 .related-main{
-    border: 2px solid darkgoldenrod;
+    /* border: 2px solid darkgoldenrod; */
     display: flex;
     /* width: 100%; */
     overflow-x: auto; /* Enables horizontal scrolling */
@@ -144,7 +144,7 @@
 
 }
 .related-card{
-    border: 2px solid darkblue;
+    /* border: 2px solid darkblue; */
     flex-shrink: 0; /* Prevents items from shrinking */
     display: flex;
     flex-direction: column;

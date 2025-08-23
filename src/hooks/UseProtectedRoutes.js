@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { Children, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 
-const ProtectedRoutes = () => {
+const ProtectedRoutes = ({children}) => {
   const navigator = useNavigate()
   const location = useLocation()
 
@@ -13,7 +13,7 @@ const ProtectedRoutes = () => {
       navigator('/login')
     }
     }, [location.pathname])
-    return <></>
+    return children
 }
 export default ProtectedRoutes
 
