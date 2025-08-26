@@ -17,7 +17,7 @@ const AllProductsMain = (props) => {
       </div>
       <div className='allproducts-main'>
         {
-            products.map((item,idx) => <AllProductsCard data = {item} key = {idx}/>)
+            products.map((item,idx) => <AllProductsCard data = {item} key = {idx}  />)
         }
       
       </div>

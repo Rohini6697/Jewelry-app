@@ -48,6 +48,17 @@
 .search{
     color: black;
 }
+.cart-count{
+    /* border: 1px solid darkblue; */
+    
+}
+.count{
+    /* background-color: cornflowerblue; */
+    position: absolute;
+    margin-left: -18px;
+    margin-top: 8px;
+    
+}
 @media (max-width : 768px) {
     .navigation-bar-container{
         display: flex;

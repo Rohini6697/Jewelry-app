@@ -10,7 +10,7 @@ import {FaRegHeart, FaHeart } from "react-icons/fa";
 import { FaWhatsapp, FaFacebook, FaPinterest, FaXTwitter } from "react-icons/fa6";
 
 
-const ProductView = () => {
+const ProductView = ({handleClick}) => {
   const { id } = useParams(); 
   const product =  Allproducts.find((item)=> item.id.toString() === id.toString())
 
@@ -51,7 +51,7 @@ const ProductView = () => {
           <p>Quantity</p>
           <Counter className = 'view-counter'/>
           <div className='view-button'>
-            <button className='view-button1'>Add To Cart</button>
+            <button className='view-button1' onClick={() => handleClick(product)}>Add To Cart</button>
             <button className='view-button2'>Buy Now</button>
             <button onClick={() => setWishlisted(!wishlisted)} className='view-button3'>Add to Wishlist{wishlisted ? <FaHeart /> : <FaRegHeart />}</button>
           </div>

@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter,Routes, Route } from 'react-router-dom';
-// import Header from './components/essential/Header';
+import Header from './components/essential/Header';
 import HomePage from './components/pages/Home';
 import ShopPage from './components/pages/Shop';
 import OurstoryPage from './components/pages/OurStory';
@@ -23,25 +23,68 @@ import AuthLayout from './layout/AuthLayout';
 import PublicLayout from './layout/PublicLayout';
 import AdminLayout from './layout/AdminLayout';
 import ProductView from './components/pages/ProductView';
+import React, { useState } from 'react';
+import Cart from './components/pages/Cart';
 
 
 function App() {
+
+  const [cart,setCart] = useState([])
+  const [warning,setWarning] = useState(false)
+  const [show,setShow] = useState(true)
+  
+  const handleClick = (item) => {
+    let isPresent = false;
+    cart.forEach((product) => {
+      if(item.id === product.id)
+        isPresent = true
+    })
+    if (isPresent){
+      setWarning(true);
+      setTimeout(() =>{
+        setWarning(false);
+      },2000)
+      return;
+    }
+    setCart([...cart,item])
+  }
+
+
+
   return (
-    <BrowserRouter>
-      {/* <Header/> */}
+    <React.Fragment>
+      <BrowserRouter>
+      {/* <Header  size={cart.length} setShow={setShow}/> */}
+      {
+        warning && <div>Item is already added to your cart</div>
+      }
+          
+      
+
+
       {/* <ProtectedRoutes/> */}
       <ErrorBoundary fallback={<div>Error happend</div>}>
         <Routes>
           <Route element = {<PublicLayout/>}>
             <Route path = '/' element = {<HomePage/>}/>
-            <Route path = '/allproducts' element = {<AllProducts/>}/>
+            {/* <Route path = '/allproducts' element = {<AllProducts handleClick={handleClick}/>}/> */}
             <Route path = '/ourstory' element = {<OurstoryPage/>}/>
             <Route path = '/giftcard' element = {<GiftcardPage/>}/>
             <Route path = '/contact' element = {<ContactPage/>}/>
             <Route path='/user' element = {<UserPage/>}/>
             <Route path = '/*' element = {<NotFound/>}/>
-            <Route path = '/productview/:id' element = {<ProductView/>}/>
-          
+            
+            <Route path = '/allproducts' element = {
+              show
+              ? <AllProducts handleClick={handleClick}/>
+              : <Cart cart={cart} setCart={setCart}/>
+            }/>
+            
+            
+
+            <Route path = '/productview/:id' element = {<ProductView handleClick={handleClick}/>} /> 
+            {/* <Route path = '/cart' element = {<Cart cart={cart} setCart={setCart}/>}/> */}
+            
           </Route>
           <Route element = {<AuthLayout/>}>
             <Route path = '/login' element = {<LoginPage/>}/>
@@ -57,6 +100,7 @@ function App() {
 
       {/* <FooterPart/> */}
     </BrowserRouter>
+    </React.Fragment>
   );
 }
 

@@ -4,7 +4,7 @@ import AllProductsMain from '../allproductcomponent/AllProductsMain'
 import '../../styles/Pages/AllProducts.css'
 import { Allproducts } from '../../data/AllProducts'
 
-const AllProducts = () => {
+const AllProducts = ({handleClick}) => {
 
   const [filterOptions, setFilterOptions] = useState({
     category: '',
