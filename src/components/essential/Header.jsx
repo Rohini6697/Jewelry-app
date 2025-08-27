@@ -5,7 +5,7 @@ import { FaUserCircle, FaSearch, FaRegHeart} from "react-icons/fa";
 // import { BiLockAlt } from "react-icons/bi";
 // import { ShoppingBag } from "lucide-react";
 import { BsBag } from "react-icons/bs";
-import { useState } from 'react';
+// import { useState } from 'react';
 
 
 

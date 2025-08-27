@@ -1,0 +1,17 @@
+.cart-main{
+    border: 2px solid darkorchid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cart-card{
+    border: 2px solid darkblue;
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+}
+.cart-card>div>img{
+    width: 200px;
+    height: 160px;
+}

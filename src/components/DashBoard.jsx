@@ -30,6 +30,14 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import SettingsIcon from '@mui/icons-material/Settings';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+// import UploadAvatars from './UploadAvatars';
+// import Avatar from '@mui/material/Avatar';
+// import ButtonBase from '@mui/material/ButtonBase';
+
+
+
 
 const items = [
   { text: "Orders", icon: <CategoryIcon /> },
@@ -42,6 +50,17 @@ const listItems = [
   { text: "Settings", icon: <SettingsIcon />},
   { text: "Return/Refunds", icon: <PaymentIcon/>},
 ]
+
+// import * as React from 'react';
+
+
+const ImageAvatars = () => {
+  return (
+    <Stack direction="row" spacing={2} sx={{marginLeft:'auto'}}>
+      <Avatar alt="Remy Sharp" src='https://media.istockphoto.com/id/1018078858/photo/gorgeous-ginger-cat-on-isolated-black-background.jpg?s=612x612&w=0&k=20&c=47yGoaN8LMsLCMKhScisycwaGnZdKTNvdTq61mHTLBo='/>
+    </Stack>
+  );
+}
 
 
 const drawerWidth = 200;
@@ -75,7 +94,9 @@ export default function DashboardWithSideDrawer() {
           <Typography variant="h6" noWrap component="div">
             Dashboard
           </Typography>
+          <ImageAvatars/>
         </Toolbar>
+        
       </AppBar>
       <Drawer
         variant="persistent"
@@ -131,6 +152,7 @@ export default function DashboardWithSideDrawer() {
                 <Typography variant="h6" gutterBottom>Total Orders</Typography>
                 <Typography variant="h4" color="primary">1,245</Typography>
               </CardContent>
+              
               <CardActions>
                 <Button size="small">View Orders</Button>
               </CardActions>

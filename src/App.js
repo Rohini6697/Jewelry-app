@@ -54,7 +54,7 @@ function App() {
   return (
     <React.Fragment>
       <BrowserRouter>
-      {/* <Header  size={cart.length} setShow={setShow}/> */}
+      <Header  size={cart.length} setShow={setShow}/>
       {
         warning && <div>Item is already added to your cart</div>
       }
@@ -74,16 +74,17 @@ function App() {
             <Route path='/user' element = {<UserPage/>}/>
             <Route path = '/*' element = {<NotFound/>}/>
             
-            <Route path = '/allproducts' element = {
+            {/* <Route path = '/allproducts' element = {
               show
               ? <AllProducts handleClick={handleClick}/>
               : <Cart cart={cart} setCart={setCart}/>
-            }/>
+            }/> */}
             
-            
+            <Route path = '/allproducts' element = {<AllProducts/>}/>
+
 
             <Route path = '/productview/:id' element = {<ProductView handleClick={handleClick}/>} /> 
-            {/* <Route path = '/cart' element = {<Cart cart={cart} setCart={setCart}/>}/> */}
+            <Route path = '/cart' element = {<Cart cart={cart} setCart={setCart}/>}/>
             
           </Route>
           <Route element = {<AuthLayout/>}>

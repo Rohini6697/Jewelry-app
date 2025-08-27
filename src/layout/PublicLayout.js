@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 function PublicLayout() {
     return (
         <>
-        <Header />
+        {/* <Header /> */}
         <main>
             <Outlet />
         </main>
