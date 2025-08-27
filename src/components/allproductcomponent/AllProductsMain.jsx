@@ -4,19 +4,31 @@ import { Allproducts } from '../../data/AllProducts';
 // import { Allproducts } from '../../data/AllProducts';
 import '../../styles/allproductcomponent/AllProductsMain.css'
 import { FaSearch} from "react-icons/fa";
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
+// import Filter from '../essential/Filter';
+import Filter from '../essential/Filter'
 
 
 const AllProductsMain = (props) => {
     const {products} = props
 
     const [searchTerm, setSearchTerm] = useState("");
+    const [priceRange, setPriceRange] = useState([0, 300]); // ✅ hold price filter
+const [filteredProducts, setFilteredProducts] = useState(products);
 
-  // Filter products based on search term
-  const filteredProducts = products.filter((item) =>
-    item.product.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Update filteredProducts whenever searchTerm or priceRange changes
+  useEffect(() => {
+    const filtered = products.filter((item) => {
+      const matchesSearch = item.product.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesPrice = item.price >= priceRange[0] && item.price <= priceRange[1];
+      return matchesSearch && matchesPrice;
+    });
+    setFilteredProducts(filtered);
+  }, [searchTerm, priceRange, products]);
 
+  const handleFilterChange = (range) => {
+    setPriceRange(range);
+  };
 
   return (
     <div>
@@ -32,8 +44,12 @@ const AllProductsMain = (props) => {
           </input>
         
         </div>
-      </div>
+      </div><div className="filter-slider">
+    <Filter onFilterChange={handleFilterChange} />
+</div>
+
       <div className='allproducts-main'>
+        
   {
     filteredProducts.map((item, idx) => (
       <AllProductsCard data={item} key={idx} />

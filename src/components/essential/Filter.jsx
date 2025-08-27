@@ -1,69 +1,37 @@
-import React, { useState } from "react";
-import {Allproducts} from '../../data/AllProducts'
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
 
-const FilterSlider = () => {
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(1000);
+function valuetext(value) {
+  return `$${value}`;
+}
 
-  // filter products based on price
-  const filteredProducts = Allproducts.filter(
-    (product) => product.price >= minPrice && product.price <= maxPrice
-  );
+ const Filter = ({onFilterChange}) => {
+  const [priceRange, setPriceRange] = React.useState([0, 500]);
+
+  const handleChange = (event, newValue) => {
+    setPriceRange(newValue);
+    // onFilterChange(newValue);
+    if (onFilterChange) {
+      onFilterChange(newValue); // send selected range to parent
+    }
+  };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>All Products</h1>
-
-      {/* Range Slider Control */}
-      <div style={{ margin: "20px 0" }}>
-        <label>Price Range: </label>
-        <input
-          type="range"
-          min="0"
-          max="2000"
-          value={minPrice}
-          onChange={(e) => setMinPrice(Number(e.target.value))}
-        />
-        <input
-          type="range"
-          min="0"
-          max="2000"
-          value={maxPrice}
-          onChange={(e) => setMaxPrice(Number(e.target.value))}
-        />
-        <p>
-          Showing products between <b>₹{minPrice}</b> and <b>₹{maxPrice}</b>
-        </p>
+    <Box sx={{ width: 250 }}>
+      <Slider
+        getAriaLabel={() => 'Price range'}
+        value={priceRange}
+        onChange={handleChange}
+        valueLabelDisplay="auto"
+        getAriaValueText={valuetext}
+        min={0}
+        max={500}
+      />
+      <div>
+        Selected Range: ${priceRange[0]} - ${priceRange[1]}
       </div>
-
-      {/* Product List */}
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product, index) => (
-            <div
-              key={index}
-              style={{
-                border: "1px solid #ddd",
-                borderRadius: "8px",
-                padding: "10px",
-                width: "200px",
-              }}
-            >
-              <img
-                src={product.image}
-                alt={product.product}
-                style={{ width: "100%", height: "150px", objectFit: "cover" }}
-              />
-              <h3>{product.product}</h3>
-              <p>₹{product.price}</p>
-            </div>
-          ))
-        ) : (
-          <p>No products found in this range.</p>
-        )}
-      </div>
-    </div>
+    </Box>
   );
-};
-
-export default FilterSlider;
+}
+export default Filter

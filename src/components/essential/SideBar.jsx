@@ -4,7 +4,9 @@ import '../../styles/essential/SideBar.css'
 // import DoubleRangeSlider from './Filter';
 // import RangeSlider from './Filter';
 // import AllProducts from './Filter';
-import FilterSlider from './Filter';
+// import FilterSlider from './Filter';
+// import Filter from './Filter'
+import Filter from '../essential/Filter'
 
 // import {Products} from './Filter'
 
@@ -57,7 +59,8 @@ const SideBar = ({ handleFilter }) => {
             {/* <Products/> */}
             {/* <DoubleRangeSlider/> */}
             {/* <RangeSlider/> */}
-            {/* <FilterSlider/> */}
+            {/* <Filter/> */}
+            
         </div>
       
     </div>

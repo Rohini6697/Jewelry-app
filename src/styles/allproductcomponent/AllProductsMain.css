@@ -17,9 +17,13 @@
     height: 50px;
     align-items: center;
     gap: 10px;
-    width: 600px;
-    border-bottom: rgb(65, 64, 64);
+    width: 550px;
+    /* border: 2px solid darkblue; */
+    border-bottom: 2px solid grey;
     
+}
+.search-products input:focus{
+    outline: none;
 }
 .search-products input{
     width: 500px;
