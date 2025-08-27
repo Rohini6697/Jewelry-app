@@ -13,21 +13,21 @@ const AllProductsMain = (props) => {
     const {products} = props
 
     const [searchTerm, setSearchTerm] = useState("");
-    const [priceRange, setPriceRange] = useState([0, 300]); // ✅ hold price filter
+    // const [priceRange, setPriceRange] = useState([0, 300]); // ✅ hold price filter
 const [filteredProducts, setFilteredProducts] = useState(products);
 
   // Update filteredProducts whenever searchTerm or priceRange changes
   useEffect(() => {
-    const filtered = products.filter((item) => {
-      const matchesSearch = item.product.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesPrice = item.price >= priceRange[0] && item.price <= priceRange[1];
-      return matchesSearch && matchesPrice;
-    });
-    setFilteredProducts(filtered);
-  }, [searchTerm, priceRange, products]);
+  const filtered = products.filter((item) => {
+    
+    const matchesSearch = item.product.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesSearch;  // <--- MUST RETURN
+  });
+  setFilteredProducts(filtered);
+}, [searchTerm, products]);
 
   const handleFilterChange = (range) => {
-    setPriceRange(range);
+    // setPriceRange(range);
   };
 
   return (
@@ -44,10 +44,7 @@ const [filteredProducts, setFilteredProducts] = useState(products);
           </input>
         
         </div>
-      </div><div className="filter-slider">
-    <Filter onFilterChange={handleFilterChange} />
-</div>
-
+      </div>
       <div className='allproducts-main'>
         
   {

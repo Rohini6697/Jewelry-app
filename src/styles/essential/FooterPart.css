@@ -1,4 +1,4 @@
-.footer>div {
+.footer-next {
     /* border: 2px solid darkblue; */
     /* border: 2px solid white; */
     background-color: black;
@@ -26,30 +26,43 @@
     color: white;
 }
 .down {
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
     /* width: 400px; */
-    /* height: 500px; */
-    /* border: 2px solid darkorange; */
+    /* height: 700px; */
+    /* border: 2px solid darkorange;  */
+    background-color: black;
+    display: flex;
+    /* margin: 0; */
+    /* gap: 10px; */
+    /* height: 300px; */
+     /* padding: 20px 0;  */
+     gap: 5px;
+     /* padding-bottom: 50px; */
+     /* width: 900px; */
 
 
 }
 .down h1 {
     /* width: 300px; */
     font-family: 'Times New Roman', Times, serif;
-    font-size: 300px;
+    font-size: 400px;
     font-weight: lighter;
     margin-top: 10px;
     /* position: absolute; */
     position: relative;
     color: white;
+    /* border: 2px solid seashell; */
+    display: flex;
+    justify-content: center;
+    /* padding: 0; */
     
 }
 .down>div {
     max-width: 1200px;
-    margin-top: -30px;
+    /* margin-top: -30px; */
     /* display: flex; */
     /* justify-content: space-between; */
     /* justify-content: center; */
@@ -73,6 +86,9 @@
 }
 .end-foot{
     width: 1200px;
+    /* height: 300px; */
+    /* margin-top: -30px; */
+    /* border: 2px solid darkkhaki; */
 }
 @media (max-width:768px) {
     .footer>div {

@@ -44,8 +44,22 @@ const AllProducts = ({handleClick}) => {
 };
 
   const [query, setQuery] = useState('');
-
+  const [searchTerm, setSearchTerm] = useState('');
+  const [priceRange, setPriceRange] = useState([0, 500]); 
   
+
+  useEffect(() => {
+  let filteredList = Allproducts;
+
+  // Filter by price range
+  filteredList = filteredList.filter(
+    product => product.price >= priceRange[0] && product.price <= priceRange[1]
+  );
+
+  setProducts(filteredList); // now 'products' is already filtered
+}, [priceRange]);
+
+
 
   useEffect(()=> {
     let productList = Allproducts
@@ -55,24 +69,21 @@ const AllProducts = ({handleClick}) => {
     if (filterOptions.bestseller) {
       productList = productList.filter(prod=> prod.isbestseller === true )
     }
-    // if (filterOptions.newIn) {
-    //   productList = productList.filter(prod => prod.)
-    // }
 
-    // useEffect(() => {
-  //     const filtered = Allproducts.filter(item =>
-  //       item.product.toLowerCase().includes(query.toLowerCase())
-  //     );
-  //     setFilteredItems(filtered);
-  //   }, [query]);
 
     setProducts(productList)
   }, [filterOptions])
 
   return (
     <div className='allproducts'>
-      <SideBar className='side' activeCategory={filterOptions.category ?? 'allproducts'} handleFilter={handleFilter}/>
-      <AllProductsMain products={products}/>
+      <SideBar className='side' activeCategory={filterOptions.category ?? 'allproducts'} handleFilter={handleFilter}
+      searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        onPriceChange={setPriceRange} />
+      <AllProductsMain products={products}
+       product={Allproducts}
+        searchTerm={searchTerm}
+        priceRange={priceRange}/>
       
     </div>
   )

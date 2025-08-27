@@ -42,7 +42,6 @@ const Header = ({size,setShow}) => {
                     
                     <li><Link to = {'/login'} className='links'>Login</Link></li>
                     
-                    <Link to = {'/search'} className='search'><FaSearch size={25} strokeWidth={1}/></Link>
                     <Link to = {'/wishlist'} ><FaRegHeart size={25} strokeWidth={1}/> </Link>
                     <div className='cart-count'onClick={() =>setShow(false)}>
                         <Link to = {'/cart'}><BsBag size={28} /> </Link>

@@ -20,7 +20,7 @@ const categories = [
 ]
 
 
-const SideBar = ({ handleFilter }) => {
+const SideBar = ({ handleFilter,onPriceChange }) => {
 
   return (
     <div className='side-bar'>
@@ -59,7 +59,7 @@ const SideBar = ({ handleFilter }) => {
             {/* <Products/> */}
             {/* <DoubleRangeSlider/> */}
             {/* <RangeSlider/> */}
-            {/* <Filter/> */}
+            <Filter onFilterChange={onPriceChange} />
             
         </div>
       

@@ -27,6 +27,7 @@ function valuetext(value) {
         getAriaValueText={valuetext}
         min={0}
         max={500}
+        sx={{color:'grey'}}
       />
       <div>
         Selected Range: ${priceRange[0]} - ${priceRange[1]}

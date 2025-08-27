@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const FooterPart = () => {
   return (
     <div className='footer'>
-        <div>
+        <div className='footer-next'>
             <div>
                 <ul>
                     <li><Link to = {'/'}>Home</Link></li>
