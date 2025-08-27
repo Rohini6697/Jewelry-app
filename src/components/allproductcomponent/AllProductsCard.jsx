@@ -10,7 +10,7 @@ const AllProductsCard = (props) => {
       <div className='allproducts-card'>
         <img src={data.image} alt={data.product} />
         <h3>{data.product}</h3>
-        <h4>{data.price}</h4>
+        <h4>${data.price}</h4>
         {/* console.log("Product idx:", data.idx); */}
 
         

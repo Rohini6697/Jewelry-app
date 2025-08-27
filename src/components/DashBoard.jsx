@@ -36,15 +36,38 @@ import Stack from '@mui/material/Stack';
 // import Avatar from '@mui/material/Avatar';
 // import ButtonBase from '@mui/material/ButtonBase';
 
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import InventoryIcon from '@mui/icons-material/Inventory';
+// import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+// import PeopleIcon from '@mui/icons-material/People';
+// import PaymentIcon from '@mui/icons-material/Payment';
+// import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+// import SettingsIcon from '@mui/icons-material/Settings';
+
+
+
+
+// const items = [
+//   { text: "Orders", icon: <CategoryIcon /> },
+//   { text: "Products", icon: <ShoppingCartIcon /> },
+//   { text: "Customers", icon: <PeopleIcon /> },
+//   { text: "Collections", icon: <CollectionsIcon /> },
+// ];
 
 
 
 const items = [
-  { text: "Orders", icon: <CategoryIcon /> },
-  { text: "Products", icon: <ShoppingCartIcon /> },
-  { text: "Customers", icon: <PeopleIcon /> },
-  { text: "Collections", icon: <CollectionsIcon /> },
-];
+  { text: "Dashboard", icon: <DashboardIcon />, path: '/admin/dashboard'},
+  { text: "Products", icon: <InventoryIcon />, path: '/admin/products' },
+  { text: "Order", icon: <ShoppingCartIcon />, path: '/' },
+  { text: "Customers", icon: <PeopleIcon />, path: '/' },
+  { text: "Return/Refunds", icon: <PaymentIcon/> , path: '/'},
+  { text: 'Analytics', icon: <TrendingUpIcon /> , path: '/' },
+  { text: "Settings", icon: <SettingsIcon /> , path: '/'},
+]
+
+
+
 const listItems = [
   { text: 'Analytics', icon: <TrendingUpIcon /> },
   { text: "Settings", icon: <SettingsIcon />},

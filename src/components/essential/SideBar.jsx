@@ -57,7 +57,7 @@ const SideBar = ({ handleFilter }) => {
             {/* <Products/> */}
             {/* <DoubleRangeSlider/> */}
             {/* <RangeSlider/> */}
-            <FilterSlider/>
+            {/* <FilterSlider/> */}
         </div>
       
     </div>

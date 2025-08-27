@@ -23,15 +23,22 @@ import AuthLayout from './layout/AuthLayout';
 import PublicLayout from './layout/PublicLayout';
 import AdminLayout from './layout/AdminLayout';
 import ProductView from './components/pages/ProductView';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Cart from './components/pages/Cart';
 
 
 function App() {
 
-  const [cart,setCart] = useState([])
+  const [cart,setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  })
   const [warning,setWarning] = useState(false)
   const [show,setShow] = useState(true)
+
+  useEffect(() => {
+    localStorage.setItem("cart",JSON.stringify(cart))
+  },[cart])
   
   const handleClick = (item) => {
     let isPresent = false;
@@ -46,9 +53,27 @@ function App() {
       },2000)
       return;
     }
-    setCart([...cart,item])
+    setCart([...cart,{...item,amount:1}])
   }
 
+  const handleChange = (item, d) => {
+  const updatedCart = cart
+    .map((product) => {
+      if (product.id === item.id) {
+        return {
+          ...product,
+          amount: product.amount + (d === '+' ? 1 : -1),
+        };
+      }
+      return product;
+    })
+    .filter((product) => product.amount > 0); // remove if amount <= 0
+  setCart(updatedCart);
+};
+
+  // }
+
+ 
 
 
   return (
@@ -84,7 +109,7 @@ function App() {
 
 
             <Route path = '/productview/:id' element = {<ProductView handleClick={handleClick}/>} /> 
-            <Route path = '/cart' element = {<Cart cart={cart} setCart={setCart}/>}/>
+            <Route path = '/cart' element = {<Cart cart={cart} setCart={setCart} handleChange={handleChange}/>}/>
             
           </Route>
           <Route element = {<AuthLayout/>}>

@@ -3,4 +3,28 @@
     grid-template-columns: repeat(3,1fr);
     gap: 30px;
     margin-bottom: 30px;
+    
+}
+.search-center{
+    display: flex;
+    justify-content: center;
+}
+.search-products{
+    /* background-color: aquamarine; */
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+    gap: 10px;
+    width: 600px;
+    border-bottom: rgb(65, 64, 64);
+    
+}
+.search-products input{
+    width: 500px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+   
 }
