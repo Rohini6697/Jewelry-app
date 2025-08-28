@@ -18,13 +18,21 @@ import UserPage from './components/usercomponent/UserPage';
 // import Search from './components/pages/Search';
 import NotFound from './components/pages/NotFound';
 import ErrorBoundary from './data/ErrorHandle';
-import DashBoard from './components/DashBoard';
+// import DashBoard from './components/DashBoard';
 import AuthLayout from './layout/AuthLayout';
 import PublicLayout from './layout/PublicLayout';
 import AdminLayout from './layout/AdminLayout';
 import ProductView from './components/pages/ProductView';
 import React, { useEffect, useState } from 'react';
 import Cart from './components/pages/Cart';
+
+
+import ProductsManagement from './components/pages/admin/ProductsManagement';
+import CustomerManagement from './components/pages/admin/CustomerManagement';
+import OrderManagement from './components/pages/admin/OrderManagement';
+import PaymentManagement from './components/pages/admin/PaymentManagement';
+import Report from './components/pages/admin/Report';
+import DashboardPage from './components/pages/admin/Dashboard';
 
 
 function App() {
@@ -79,7 +87,7 @@ function App() {
   return (
     <React.Fragment>
       <BrowserRouter>
-      <Header  size={cart.length} setShow={setShow}/>
+      {/* <Header  size={cart.length} setShow={setShow}/> */}
       {
         warning && <div>Item is already added to your cart</div>
       }
@@ -117,7 +125,15 @@ function App() {
             <Route path = '/signup' element = {<SignUp/>}/>
           </Route>
           <Route element = {<ProtectedRoutes><AdminLayout/></ProtectedRoutes>}>
-            <Route path='/admin/dashboard' element = {<DashBoard/>}/>
+            <Route path='/admin/dashboard' element = {<DashboardPage/>}/>
+            <Route path='/admin/products' element = {<ProductsManagement/>}/>
+            <Route path='/admin/orders' element = {<OrderManagement/>}/>
+            <Route path='/admin/customers' element = {<CustomerManagement/>}/>
+            <Route path='/admin/return' element = {<PaymentManagement/>}/>
+            <Route path='/admin/analytics' element = {<Report/>}/>
+
+            {/* <Route path='/admin/settings' element = {<PaymentManagement/>}/> */}
+
           </Route>
             {/* <Route path = '/search' element = {<Search/>}/> */}
 
