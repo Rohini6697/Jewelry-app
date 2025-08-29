@@ -19,28 +19,19 @@ import ListItemText from '@mui/material/ListItemText';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PeopleIcon from '@mui/icons-material/People';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import PaymentIcon from '@mui/icons-material/Payment';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
+import { Collapse } from '@mui/material';
+import PanoramaFishEyeIcon from '@mui/icons-material/PanoramaFishEye';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 
-import ListSubheader from '@mui/material/ListSubheader';
-// import List from '@mui/material/List';
-// import ListItemButton from '@mui/material/ListItemButton';
-// import ListItemIcon from '@mui/material/ListItemIcon';
-// import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import SendIcon from '@mui/icons-material/Send';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
-
+// import Box from '@mui/material/Box';
+import Popper from '@mui/material/Popper';
 
 
 
@@ -104,24 +95,64 @@ const Drawer = styled(MuiDrawer, {
     '& .MuiDrawer-paper': closedMixin(theme),
   }),
 }));
+// menu config
 const items = [
-  { text: "Dashboard", icon: <DashboardIcon />, path: '/admin/dashboard'},
-  { text: "Products", icon: <InventoryIcon />, path: '/admin/products' },
-  { text: "Order", icon: <ShoppingCartIcon />, path: '/admin/order' },
-  { text: "Customers", icon: <PeopleIcon />, path: '/admin/customer' },
-  { text: "Return/Refunds", icon: <PaymentIcon/> , path: '/admin/return'},
-  { text: 'Analytics', icon: <TrendingUpIcon /> , path: '/admin/analytics' },
-  { text: "Settings", icon: <SettingsIcon /> , path: '/admin/settings'},
-]
+  { text: "Dashboard", icon: <DashboardIcon />, path: '/admin/dashboard' },
+  {
+    text: "Products", icon: <InventoryIcon />, children: [
+      { text: "All Products", path: "/admin/product" },
+      { text: "Add Product", path: "/admin/product/addproduct" },
+      { text: "Category List", path: "/admin/product/categorylist" }
+    ]
+  },
+  {
+    text: "Orders", icon: <ShoppingCartIcon />, children: [
+      { text: "Order List", path: "/admin/orders/orderlist" },
+      { text: "Order Details", path: "/admin/orders/details" }
+    ]
+  },
+  { text: "Customers", icon: <PeopleIcon />, path: '/admin/customers' },
+  { text: 'Analytics', icon: <TrendingUpIcon />, path: '/admin/analytics' },
+  { text: "Settings", icon: <SettingsIcon />, path: '/admin/settings' },
+];
+
 const Dashboard = () => {
+  
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const isOpen = Boolean(anchorEl); // renamed from "open"
+  const id = isOpen ? 'simple-popper' : undefined;
+
+
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const handleDrawerOpen = () => {
-    setOpen(true);
+  const [openDropdown, setOpenDropdown] = React.useState({});
+  const navigate = useNavigate();
+  const location = useLocation();
+  const handleDrawerOpen = () => setOpen(true);
+  const handleDrawerClose = () => setOpen(false);
+  const toggleDropdown = (menu) => {
+    setOpenDropdown((prev) => ({ ...prev, [menu]: !prev[menu] }));
   };
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  // :fire: Advanced active style
+  const getItemStyles = (isActive) => ({
+    minHeight: 48,
+    justifyContent: open ? 'initial' : 'center',
+    px: 2.5,
+    bgcolor: isActive ? "black" : "transparent",
+    color: isActive ? "white" : "black",
+    borderRadius: 2,
+    "&:hover": {
+      bgcolor: isActive ? "black" : "grey.200",
+      color: "white",
+      "& .MuiSvgIcon-root": { color: "white" }
+    }
+  });
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -129,7 +160,6 @@ const Dashboard = () => {
         <Toolbar>
           <IconButton
             color="inherit"
-            aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
             sx={{
@@ -142,18 +172,26 @@ const Dashboard = () => {
           <Typography variant="h6" noWrap component="div">
             Dashboard
           </Typography>
-          <Stack direction="row" spacing={2} sx={{marginLeft:'auto'}}>
-            <Avatar sx={{ width: 36, height: 36 , }}
-            alt="Cindy Baker"
-            src="/images/femaleavatar.jpg" />
+          <Stack direction="row" spacing={2} sx={{ marginLeft: 'auto' }}>
+            <Avatar sx={{ width: 36, height: 36}}
+              alt="Cindy Baker"
+              src="/images/femaleavatar.jpg"
+              onClick={handleClick} />
+              <Popper id={id} open={isOpen} anchorEl={anchorEl}>
+                <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper' }}>
+                  Log Out
+                </Box>
+              </Popper>
           </Stack>
         </Toolbar>
       </AppBar>
+      {/* Drawer */}
       <Drawer variant="permanent" open={open} sx={{ mr: 1 }}>
         <DrawerHeader>
-          <Avatar sx={{ width: 36, height: 36 , }}
+          <Avatar sx={{ width: 36, height: 36 }}
             alt="Cindy Baker"
-            src='https://t4.ftcdn.net/jpg/01/26/25/87/240_F_126258795_RsUfim6zR5AJIA1OMmEWK3M2lldHm4V4.jpg' />
+            src="/images/logo.webp" />
+            
           <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
             Dennel
           </Typography>
@@ -162,37 +200,91 @@ const Dashboard = () => {
           </IconButton>
         </DrawerHeader>
         <Divider />
-       <List>
-          {items.map((item) => (
-            <ListItem key={item.text} disablePadding>
-              <ListItemButton
-                sx={{ color: "black", "&:hover": { bgcolor: "grey.200" } }}
-                type='link'
-                href={item.path}
-              >
-                <ListItemIcon sx={{ color: "black" }}>{item.icon}</ListItemIcon>
-                <ListItemText primary={item.text} />
-                
-                
-              </ListItemButton>
-            </ListItem>
-          ))}
+        <List>
+          {items.map((item) => {
+            const isActive = item.path && location.pathname.includes(item.path);
+            return (
+              <React.Fragment key={item.text}>
+                <ListItem disablePadding sx={{ display: 'block' }}>
+                  <ListItemButton
+                    onClick={() => {
+                      if (item.children) {
+                        toggleDropdown(item.text);
+                      } else {
+                        item.path && navigate(item.path);
+                      }
+                    }}
+                    sx={getItemStyles(isActive)}
+                  >
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : 'auto',
+                        justifyContent: 'center',
+                        color: isActive ? "white" : "black",
+                      }}
+                    >
+                      {item.icon}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={item.text}
+                      sx={{ opacity: open ? 1 : 0 }}
+                    />
+                    {/* arrow indicator for dropdown */}
+                    {item.children && open && (
+                      <KeyboardArrowDownIcon
+                        sx={{
+                          transform: openDropdown[item.text] ? "rotate(180deg)" : "rotate(0deg)",
+                          transition: "transform 0.3s",
+                        }}
+                      />
+                    )}
+                  </ListItemButton>
+                </ListItem>
+                {/* Dropdown children */}
+                {item.children && (
+                  <Collapse in={openDropdown[item.text] && open} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                      {item.children.map((child) => {
+                        const childActive = location.pathname === child.path;
+                        return (
+                          <ListItemButton
+                            key={child.text}
+                            sx={{
+                              pl: 4,
+                              ...getItemStyles(childActive),
+                            }}
+                            onClick={() => navigate(child.path)}
+                          >
+                            <ListItemIcon>
+                              <PanoramaFishEyeIcon
+                                sx={{
+                                  fontSize: 'small',
+                                  color: childActive ? "white" : "black"
+                                }}
+                              />
+                            </ListItemIcon>
+                            <ListItemText primary={child.text} />
+                          </ListItemButton>
+                        );
+                      })}
+                    </List>
+                  </Collapse>
+                )}
+              </React.Fragment>
+            );
+          })}
         </List>
       </Drawer>
+      {/* Main Content */}
       <Box component="main" sx={{ flexGrow: 1 }}>
         <DrawerHeader />
-            <Outlet/>
+        <Outlet />
       </Box>
     </Box>
   );
-}
-export default Dashboard
-
-
-
-
-
-
+};
+export default Dashboard;
 
 
 

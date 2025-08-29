@@ -33,6 +33,12 @@ import OrderManagement from './components/pages/admin/OrderManagement';
 import PaymentManagement from './components/pages/admin/PaymentManagement';
 import Report from './components/pages/admin/Report';
 import DashboardPage from './components/pages/admin/Dashboard';
+import { Settings } from 'lucide-react';
+import AddProduct from './components/pages/admin/AddProduct';
+import AdminLogin from './components/AdminLogin';
+import { AuthProvider } from './context/AuthContext';
+import Dashboard from './layout/AdminLayout';
+import StatsRow from './components/pages/admin/OrderList';
 
 
 function App() {
@@ -85,8 +91,9 @@ function App() {
 
 
   return (
-    <React.Fragment>
-      <BrowserRouter>
+    
+    <BrowserRouter>
+      <AuthProvider>
       {/* <Header  size={cart.length} setShow={setShow}/> */}
       {
         warning && <div>Item is already added to your cart</div>
@@ -124,16 +131,23 @@ function App() {
             <Route path = '/login' element = {<LoginPage/>}/>
             <Route path = '/signup' element = {<SignUp/>}/>
           </Route>
-          <Route element = {<ProtectedRoutes><AdminLayout/></ProtectedRoutes>}>
+
+          <Route path='/admin/login' element = {<AdminLogin/>}/>
+          <Route element = {<ProtectedRoutes adminOnly={true}/>}>
+            <Route element={<AdminLayout/>}>
+            
+            
             <Route path='/admin/dashboard' element = {<DashboardPage/>}/>
             <Route path='/admin/products' element = {<ProductsManagement/>}/>
             <Route path='/admin/orders' element = {<OrderManagement/>}/>
             <Route path='/admin/customers' element = {<CustomerManagement/>}/>
             <Route path='/admin/return' element = {<PaymentManagement/>}/>
             <Route path='/admin/analytics' element = {<Report/>}/>
+            <Route path='/admin/settings' element = {<Settings/>}/>
+            <Route path='/admin/product/addproduct' element = {<AddProduct/>}/>
+            <Route path='/admin/orders/orderlist' element= {<StatsRow/>}/>
 
-            {/* <Route path='/admin/settings' element = {<PaymentManagement/>}/> */}
-
+            </Route>
           </Route>
             {/* <Route path = '/search' element = {<Search/>}/> */}
 
@@ -141,8 +155,9 @@ function App() {
       </ErrorBoundary>
 
       {/* <FooterPart/> */}
-    </BrowserRouter>
-    </React.Fragment>
+    </AuthProvider>
+  </BrowserRouter>
+    
   );
 }
 
