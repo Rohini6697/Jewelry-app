@@ -120,6 +120,7 @@ const Dashboard = () => {
   
   const [anchorEl, setAnchorEl] = React.useState(null);
 
+
   const handleClick = (event) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
@@ -140,6 +141,11 @@ const Dashboard = () => {
     setOpenDropdown((prev) => ({ ...prev, [menu]: !prev[menu] }));
   };
   // :fire: Advanced active style
+  const logout = () => {
+    localStorage.removeItem("loggedInUser");
+    navigate("/admin/login");
+  };
+
   const getItemStyles = (isActive) => ({
     minHeight: 48,
     justifyContent: open ? 'initial' : 'center',
@@ -178,7 +184,7 @@ const Dashboard = () => {
               src="/images/femaleavatar.jpg"
               onClick={handleClick} />
               <Popper id={id} open={isOpen} anchorEl={anchorEl}>
-                <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper' }}>
+                <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper' }} onClick={logout}>
                   Log Out
                 </Box>
               </Popper>
