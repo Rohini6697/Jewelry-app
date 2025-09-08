@@ -25,16 +25,11 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { Collapse } from '@mui/material';
+import { Button, Collapse, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Popper } from '@mui/material';
 import PanoramaFishEyeIcon from '@mui/icons-material/PanoramaFishEye';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-
-
-// import Box from '@mui/material/Box';
-import Popper from '@mui/material/Popper';
-
-
-
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
 const drawerWidth = 240;
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -100,69 +95,63 @@ const items = [
   { text: "Dashboard", icon: <DashboardIcon />, path: '/admin/dashboard' },
   {
     text: "Products", icon: <InventoryIcon />, children: [
-      { text: "All Products", path: "/admin/product" },
-      { text: "Add Product", path: "/admin/product/addproduct" },
-      { text: "Category List", path: "/admin/product/categorylist" }
+      { text: "All Products", path: "/admin/productlist" },
+      { text: "Add Product", path: "/admin/addproduct" },
     ]
   },
-  {
-    text: "Orders", icon: <ShoppingCartIcon />, children: [
-      { text: "Order List", path: "/admin/orders/orderlist" },
-      { text: "Order Details", path: "/admin/orders/details" }
-    ]
-  },
+  { text: "Order", icon: <ShoppingCartIcon />, children: [
+      { text: "Order List", path: "/admin/orderlist" },
+      { text: "Order Details", path: "/admin/orderdetails" },
+    ] },
   { text: "Customers", icon: <PeopleIcon />, path: '/admin/customers' },
   { text: 'Analytics', icon: <TrendingUpIcon />, path: '/admin/analytics' },
   { text: "Settings", icon: <SettingsIcon />, path: '/admin/settings' },
 ];
-
 const Dashboard = () => {
-  
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-
-  const handleClick = (event) => {
-    setAnchorEl(anchorEl ? null : event.currentTarget);
-  };
-
-  const isOpen = Boolean(anchorEl); // renamed from "open"
-  const id = isOpen ? 'simple-popper' : undefined;
-
-
-
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [openDropdown, setOpenDropdown] = React.useState({});
   const navigate = useNavigate();
   const location = useLocation();
+  const [openDialog, setOpenDialog] = React.useState(false);
+  const handleLogoutClick = () => setOpenDialog(true);
+  const handleCloseDialog = () => setOpenDialog(false);
+  const logout = () => {
+    localStorage.removeItem("loggedInUser");
+    navigate("/admin/login");
+  };
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const handleIconClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+  const Iconopen = Boolean(anchorEl);
+  const id = Iconopen ? 'simple-popper' : undefined;
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
   const toggleDropdown = (menu) => {
     setOpenDropdown((prev) => ({ ...prev, [menu]: !prev[menu] }));
   };
-  // :fire: Advanced active style
-  const logout = () => {
-    localStorage.removeItem("loggedInUser");
-    navigate("/admin/login");
-  };
-
   const getItemStyles = (isActive) => ({
     minHeight: 48,
     justifyContent: open ? 'initial' : 'center',
     px: 2.5,
-    bgcolor: isActive ? "black" : "transparent",
-    color: isActive ? "white" : "black",
-    borderRadius: 2,
+    bgcolor: isActive ? "#807c7dff" : "transparent",
+    color: isActive ? "black" : "black",
+    "& .MuiSvgIcon-root": { color: "black" },
+    borderRadius: 3,
     "&:hover": {
-      bgcolor: isActive ? "black" : "grey.200",
-      color: "white",
-      "& .MuiSvgIcon-root": { color: "white" }
+      bgcolor: isActive ? "#adabacff" : "#aaa2a5ff",
+      color: "black",
+      "& .MuiSvgIcon-root": { color: "blue" }
     }
   });
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} sx={{
+                background: " #aba7a8ff",
+                color:'black'
+      }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -179,25 +168,35 @@ const Dashboard = () => {
             Dashboard
           </Typography>
           <Stack direction="row" spacing={2} sx={{ marginLeft: 'auto' }}>
-            <Avatar sx={{ width: 36, height: 36}}
+            {/* <Button color='inherit' onClick={handleLogoutClick}>LOGOUT </Button> */}
+            <AccountCircleIcon onClick={handleIconClick} sx={{ width: 36, height: 36 }} />
+            <Popper id={id} open={Iconopen} anchorEl={anchorEl}>
+              <Box sx={{ border: 2, p: 1, mt:2, bgcolor: 'white',
+                "&:hover": {
+                    bgcolor: "#5e595bff",
+                    color: "black",
+                  }
+               }}>
+                <Button color='inherit' onClick={handleLogoutClick}>LOGOUT </Button>
+              </Box>
+            </Popper>
+            {/* <AccountCircleIcon sx={{ width: 36, height: 36 }} /> */}
+            {/* <Avatar sx={{ width: 36, height: 36 }}
               alt="Cindy Baker"
               src="/images/femaleavatar.jpg"
-              onClick={handleClick} />
-              <Popper id={id} open={isOpen} anchorEl={anchorEl}>
-                <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper' }} onClick={logout}>
-                  Log Out
-                </Box>
-              </Popper>
+               /> */}
           </Stack>
         </Toolbar>
       </AppBar>
-      {/* Drawer */}
-      <Drawer variant="permanent" open={open} sx={{ mr: 1 }}>
+      <Drawer variant="permanent" open={open} sx={{ mr: 1 ,
+      // '& .MuiDrawer-paper':{
+      //   background: "linear-gradient(180deg, #FCEAEF 20%, #66676bff 90%)",
+      // }
+        }}>
         <DrawerHeader>
           <Avatar sx={{ width: 36, height: 36 }}
             alt="Cindy Baker"
             src="/images/logo.webp" />
-            
           <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
             Dennel
           </Typography>
@@ -236,7 +235,6 @@ const Dashboard = () => {
                       primary={item.text}
                       sx={{ opacity: open ? 1 : 0 }}
                     />
-                    {/* arrow indicator for dropdown */}
                     {item.children && open && (
                       <KeyboardArrowDownIcon
                         sx={{
@@ -247,7 +245,6 @@ const Dashboard = () => {
                     )}
                   </ListItemButton>
                 </ListItem>
-                {/* Dropdown children */}
                 {item.children && (
                   <Collapse in={openDropdown[item.text] && open} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
@@ -287,10 +284,27 @@ const Dashboard = () => {
         <DrawerHeader />
         <Outlet />
       </Box>
+      <Dialog
+        open={openDialog}
+        onClose={handleCloseDialog}
+        aria-labelledby="logout-dialog-title">
+        <DialogTitle id="logout-dialog-title">Confirm Logout</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Are you sure you want to logout?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog} color="inherit">
+            Cancel
+          </Button>
+          <Button onClick={logout} color="error" autoFocus>
+            Logout
+            {/* <LogoutIcon sx={{fontSize:15}}/> */}
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };
 export default Dashboard;
-
-
-

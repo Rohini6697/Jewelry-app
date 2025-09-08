@@ -39,6 +39,7 @@ import AdminLogin from './components/AdminLogin';
 import { AuthProvider } from './context/AuthContext';
 import Dashboard from './layout/AdminLayout';
 import StatsRow from './components/pages/admin/OrderList';
+import ProductList from './components/pages/admin/ProductList';
 
 
 function App() {
@@ -144,8 +145,13 @@ function App() {
             <Route path='/admin/return' element = {<PaymentManagement/>}/>
             <Route path='/admin/analytics' element = {<Report/>}/>
             <Route path='/admin/settings' element = {<Settings/>}/>
-            <Route path='/admin/product/addproduct' element = {<AddProduct/>}/>
-            <Route path='/admin/orders/orderlist' element= {<StatsRow/>}/>
+            <Route path='/admin/addproduct' element = {<AddProduct/>}/>
+            <Route path='/admin/orderlist' element= {<StatsRow/>}/>
+            <Route path='/admin/productlist' element= {<ProductList/>}/>
+            <Route path='/admin/product/categorylist' element= {<ProductList/>}/>
+            <Route path='/admin/orderdetails' element= {<ProductList/>}/>
+
+
 
             </Route>
           </Route>

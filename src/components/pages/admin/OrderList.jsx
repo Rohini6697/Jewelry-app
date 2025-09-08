@@ -11,6 +11,7 @@ import Avatar from '@mui/material/Avatar';
 // import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import TextField from '@mui/material/TextField';
+import { yellow } from "@mui/material/colors";
 
 // import Paper from '@mui/material/Paper';
 
@@ -115,11 +116,11 @@ const StatsRow = () => {
       sx={{
         p: 2,
         display: "flex",
-        justifyContent: "space-around",
+        justifyContent:"center",
         alignItems: "center",
         borderRadius: 2,
         boxShadow: "0px 2px 6px rgba(0,0,0,0.2)",
-        marginTop:2
+        marginTop:2,
       }}
     >
       <Grid container spacing={2} gap={10}>
@@ -167,7 +168,8 @@ const StatsRow = () => {
           />
         </Box>
 
-        <DataGrid
+        <Box sx={{backgroundColor:yellow[50]}}>
+          <DataGrid
           rows={filteredRows}
           columns={columns}
           initialState={{ pagination: { paginationModel } }}
@@ -175,6 +177,7 @@ const StatsRow = () => {
           checkboxSelection
           sx={{ border: 0 }}
         />
+        </Box>
       </Paper>
     </>
   );
