@@ -55,6 +55,7 @@ const columns = [
     },
   },
   { field: "date", headerName: "Date", width: 150 },
+  // { field: "date", headerName: "Date", width: 150 }
 ];
 
 const rows = [
@@ -94,7 +95,107 @@ const rows = [
     status: "Failed",
     date: "2024-08-14",
   },
+  {
+    id: 1005,
+    image: "https://via.placeholder.com/50",
+    product: "Emerald Pendant",
+    customer: "Bran Stark",
+    price: 350,
+    status: "Completed",
+    date: "2024-08-15",
+  },
+  {
+    id: 1006,
+    image: "https://via.placeholder.com/50",
+    product: "Ruby Ring",
+    customer: "Sansa Stark",
+    price: 850,
+    status: "Pending",
+    date: "2024-08-16",
+  },
+  {
+    id: 1007,
+    image: "https://via.placeholder.com/50",
+    product: "Platinum Bracelet",
+    customer: "Tyrion Lannister",
+    price: 1200,
+    status: "Refunded",
+    date: "2024-08-17",
+  },
+  {
+    id: 1008,
+    image: "https://via.placeholder.com/50",
+    product: "Sapphire Earrings",
+    customer: "Brienne of Tarth",
+    price: 450,
+    status: "Completed",
+    date: "2024-08-18",
+  },
+  {
+    id: 1009,
+    image: "https://via.placeholder.com/50",
+    product: "Opal Necklace",
+    customer: "Samwell Tarly",
+    price: 275,
+    status: "Failed",
+    date: "2024-08-19",
+  },
+  {
+    id: 1010,
+    image: "https://via.placeholder.com/50",
+    product: "Pearl Bracelet",
+    customer: "Gendry Waters",
+    price: 180,
+    status: "Completed",
+    date: "2024-08-20",
+  },
+  {
+    id: 1011,
+    image: "https://via.placeholder.com/50",
+    product: "Diamond Pendant",
+    customer: "Sandor Clegane",
+    price: 999,
+    status: "Pending",
+    date: "2024-08-21",
+  },
+  {
+    id: 1012,
+    image: "https://via.placeholder.com/50",
+    product: "Ruby Earrings",
+    customer: "Jorah Mormont",
+    price: 320,
+    status: "Refunded",
+    date: "2024-08-22",
+  },
+  {
+    id: 1013,
+    image: "https://via.placeholder.com/50",
+    product: "Gold Ring",
+    customer: "Margaery Tyrell",
+    price: 560,
+    status: "Completed",
+    date: "2024-08-23",
+  },
+  {
+    id: 1014,
+    image: "https://via.placeholder.com/50",
+    product: "Amethyst Necklace",
+    customer: "Petyr Baelish",
+    price: 670,
+    status: "Pending",
+    date: "2024-08-24",
+  },
+  {
+    id: 1015,
+    image: "https://via.placeholder.com/50",
+    product: "Topaz Bracelet",
+    customer: "Oberyn Martell",
+    price: 740,
+    status: "Completed",
+    date: "2024-08-25",
+  },
 ];
+
 
 const paginationModel = { page: 0, pageSize: 5 };
 
@@ -155,7 +256,7 @@ const StatsRow = () => {
         ))}
       </Grid>
     </Paper>
-    <Paper sx={{  marginTop:2, p: 2 ,boxShadow: "0px 2px 6px rgba(0,0,0,0.2)",}}>
+    <Paper sx={{  marginTop:2, p:2 ,boxShadow: "0px 2px 6px rgba(0,0,0,0.2)",}}>
         {/* Search box */}
         <Box sx={{ mb: 2 }}>
           <TextField
@@ -173,7 +274,7 @@ const StatsRow = () => {
           rows={filteredRows}
           columns={columns}
           initialState={{ pagination: { paginationModel } }}
-          pageSizeOptions={[5, 10]}
+          pageSizeOptions={[5,10,15,20]}
           checkboxSelection
           sx={{ border: 0 }}
         />

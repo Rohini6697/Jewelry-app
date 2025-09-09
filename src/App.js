@@ -49,7 +49,7 @@ function App() {
     return savedCart ? JSON.parse(savedCart) : [];
   })
   const [warning,setWarning] = useState(false)
-  const [show,setShow] = useState(true)
+  
 
   useEffect(() => {
     localStorage.setItem("cart",JSON.stringify(cart))

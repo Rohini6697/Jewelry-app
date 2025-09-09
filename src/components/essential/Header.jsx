@@ -11,6 +11,7 @@ import { BsBag } from "react-icons/bs";
 
 
 const Header = ({size,setShow}) => {
+    // const [show,setShow] = useState(true)
 
     // const [show,setShow] = useState(true);
     
