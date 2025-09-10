@@ -51,12 +51,12 @@ const AllProducts = ({handleClick}) => {
   useEffect(() => {
   let filteredList = Allproducts;
 
-  // Filter by price range
+  
   filteredList = filteredList.filter(
     product => product.price >= priceRange[0] && product.price <= priceRange[1]
   );
 
-  setProducts(filteredList); // now 'products' is already filtered
+  setProducts(filteredList); 
 }, [priceRange]);
 
 

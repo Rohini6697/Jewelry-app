@@ -6,6 +6,11 @@ import ReplayIcon from "@mui/icons-material/Replay";
 import PaymentIcon from "@mui/icons-material/Payment";
 import Avatar from '@mui/material/Avatar';
 
+import { useState } from 'react';
+import { useDebounce } from 'use-debounce';
+import { useDebouncedCallback } from 'use-debounce';
+
+
 // import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
 // import * as React from 'react';
@@ -14,6 +19,8 @@ import TextField from '@mui/material/TextField';
 import { yellow } from "@mui/material/colors";
 
 // import Paper from '@mui/material/Paper';
+
+
 
 const stats = [
   { value: 56, label: "Pending Payment", icon: <EventIcon />, color: "#6b7280" },
@@ -204,12 +211,30 @@ const paginationModel = { page: 0, pageSize: 5 };
 
 const StatsRow = () => {
   const [searchText, setSearchText] = React.useState('');
+  const [value] = useDebounce(searchText, 1000);
+
    const filteredRows = rows.filter((row) =>
     Object.values(row)
       .join(' ')
       .toLowerCase()
       .includes(searchText.toLowerCase())
   );
+  
+
+
+  
+  // const [value, setValue] = useState('');
+  // // Debounce callback
+  // const debounced = useDebouncedCallback(
+  //   // function
+    
+  //   // delay in ms
+  //   1000
+  // );
+  
+
+
+  
   return (
     <>
     <Paper
@@ -267,6 +292,7 @@ const StatsRow = () => {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
+          <p>Debounce value: {value}</p>
         </Box>
 
         <Box sx={{backgroundColor:yellow[50]}}>
